@@ -2,14 +2,13 @@
 name = "workflow-types"
 version = "0.0.0"
 description = "Common type definitions for the Uncertainty Engine"
-authors = [
-    {name = "Freddy Wordingham",email = "freddy@digilab.co.uk"}
-]
+authors = [{ name = "Freddy Wordingham", email = "freddy@digilab.co.uk" }]
 readme = "README.md"
-requires-python = "^3.10"
-dependencies = [
-]
 
+[tool.poetry.dependencies]
+pandas = "^2.2.3"
+pydantic = "^2.10.5"
+requires-python = "^3.9"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
