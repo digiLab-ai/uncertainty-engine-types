@@ -9,7 +9,7 @@ readme = "README.md"
 pandas = "^2.2.3"
 pydantic = "^2.10.5"
 python = "^3.9"
-typeguard = "^4.4.1"
+typeguard = ">=2.13.3,<2.14.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
