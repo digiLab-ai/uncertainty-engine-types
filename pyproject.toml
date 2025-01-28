@@ -1,14 +1,14 @@
 [project]
 name = "workflow-types"
-version = "0.0.0"
+version = "0.0.1"
 description = "Common type definitions for the Uncertainty Engine"
-authors = [{ name = "Freddy Wordingham", email = "freddy@digilab.co.uk" }]
+authors = [{ name = "Freddy Wordingham", email = "freddy@digilab.ai" }, { name = "Jasper Cantwell", email = "jasper@digilab.ai" }]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 pandas = "^2.2.3"
 pydantic = "^2.10.5"
-python = "^3.9"
+python = "^3.10"
 typeguard = ">=2.13.3,<2.14.0"
 
 [tool.poetry.group.dev.dependencies]
