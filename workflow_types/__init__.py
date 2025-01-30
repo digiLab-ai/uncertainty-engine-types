@@ -1,5 +1,6 @@
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
+from .handle import Handle
 from .llm import LLM, LLMManager, LLMProvider
 from .message import Message
 from .model import TwinLabModel, save_model
@@ -13,6 +14,7 @@ from .vector_store import VectorStoreConnection, VectorStoreManager, VectorStore
 __all__ = [
     "ExecutionError",
     "Graph",
+    "Handle",
     "LLM",
     "LLMManager",
     "LLMProvider",
