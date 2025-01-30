@@ -3,13 +3,12 @@ from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .llm import LLM, LLMManager, LLMProvider
 from .message import Message
 from .model import TwinLabModel, save_model
-from .node_info import NodeInputInfo, NodeOutputInfo, NodeInfo
+from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
+from .sensor_designer import SensorDesigner, save_sensor_designer
 from .sql import SQLDatabase, SQLKind, SQLManager
 from .tabular_data import TabularData
 from .token import Token
-from .vector_store import VectorStoreManager, VectorStoreProvider, VectorStoreConnection
-from .sensor_designer import SensorDesigner, save_sensor_designer
-
+from .vector_store import VectorStoreConnection, VectorStoreManager, VectorStoreProvider
 
 __all__ = [
     "ExecutionError",
