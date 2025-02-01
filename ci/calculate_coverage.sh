@@ -2,7 +2,7 @@
 set -e
 
 # Run pytest with coverage
-poetry run pytest --cov=workflow_types --cov-report=xml
+poetry run pytest --cov=uncertainty_engine_types --cov-report=xml
 
 # Extract coverage percentage using a more specific awk command
 COVERAGE_PERCENT=$(awk -F'"' '/<coverage.*line-rate=/ {for(i=1;i<=NF;i++) if($i ~ /line-rate/) print $(i+1)}' coverage.xml)

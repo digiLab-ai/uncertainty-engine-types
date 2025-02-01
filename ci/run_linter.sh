@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-poetry run flake8 workflow_types
+poetry run flake8 uncertainty_engine_types

@@ -2,7 +2,7 @@
 set -e
 
 # Run the radon command and capture the output
-RADON_OUTPUT=$(poetry run radon cc workflow_types -a)
+RADON_OUTPUT=$(poetry run radon cc uncertainty_engine_types -a)
 echo "$RADON_OUTPUT"
 
 # Extract the complexity score using grep and awk

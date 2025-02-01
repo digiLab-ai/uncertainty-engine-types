@@ -2,7 +2,7 @@
 set -e
 
 # Run the radon mi command with summaries and capture the output
-OUTPUT=$(poetry run radon mi -s workflow_types)
+OUTPUT=$(poetry run radon mi -s uncertainty_engine_types)
 
 # Extract the numerical maintainability index scores using awk
 SCORES=$(echo "$OUTPUT" | awk -F'[()]' '{print $2}')
