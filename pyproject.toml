@@ -1,8 +1,12 @@
 [project]
-name = "workflow-types"
+name = "uncertainty-engine-types"
 version = "0.0.1"
 description = "Common type definitions for the Uncertainty Engine"
-authors = [{ name = "Freddy Wordingham", email = "freddy@digilab.ai" }, { name = "Jasper Cantwell", email = "jasper@digilab.ai" }]
+authors = [
+    { name = "Freddy Wordingham", email = "freddy@digilab.ai" },
+    { name = "Jasper Cantwell", email = "jasper@digilab.ai" },
+    { name = "Jamie Donald-McCann", email = "jamie.donald-mccann@digilab.ai" },
+]
 readme = "README.md"
 
 [tool.poetry.dependencies]
