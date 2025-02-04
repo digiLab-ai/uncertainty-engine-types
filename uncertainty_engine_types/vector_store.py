@@ -114,7 +114,7 @@ class VectorStoreManager(BaseModel):
     embedding_api_key: str
 
     @typechecked
-    def connect(self):
+    def connect(self) -> WeaviateVectorStoreConnection:
         """
         Connect to the vector store.
 
