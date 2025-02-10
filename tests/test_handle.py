@@ -1,6 +1,6 @@
 import pytest
 
-from workflow_types import Handle
+from uncertainty_engine_types import Handle
 
 
 def test_handle():
