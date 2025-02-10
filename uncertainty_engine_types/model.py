@@ -5,7 +5,7 @@ import tempfile
 from pydantic import BaseModel, ConfigDict
 
 
-class TwinLabModel(BaseModel):
+class Model(BaseModel):
     model_type: str
     config: dict
     metadata: dict
@@ -27,13 +27,12 @@ class TwinLabModel(BaseModel):
 
         return tl_model, meta_data
 
+    @classmethod
+    def save_model(cls, model, meta_data: dict) -> "Model":
 
-# TODO: Should this be a method of the type?
-def save_model(model, meta_data: dict) -> TwinLabModel:
+        with tempfile.NamedTemporaryFile(mode="r", suffix=".json") as f:
+            model.save(f.name, meta_data)
+            f.seek(0)
+            config = json.load(f)
 
-    with tempfile.NamedTemporaryFile(mode="r", suffix=".json") as f:
-        model.save(f.name, meta_data)
-        f.seek(0)
-        config = json.load(f)
-
-    return TwinLabModel(**config)
+        return cls(**config)
