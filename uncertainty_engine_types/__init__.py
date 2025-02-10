@@ -3,7 +3,7 @@ from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
 from .llm import LLM, LLMManager, LLMProvider
 from .message import Message
-from .model import TwinLabModel, save_model
+from .model import Model
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
 from .sensor_designer import SensorDesigner, save_sensor_designer
 from .sql import SQLDatabase, SQLKind, SQLManager
@@ -25,7 +25,6 @@ __all__ = [
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
-    "save_model",
     "save_sensor_designer",
     "SensorDesigner",
     "SourceHandle",
@@ -35,7 +34,7 @@ __all__ = [
     "TabularData",
     "TargetHandle",
     "Token",
-    "TwinLabModel",
+    "Model",
     "VectorStoreConnection",
     "VectorStoreManager",
     "VectorStoreProvider",
