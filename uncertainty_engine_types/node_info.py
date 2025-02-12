@@ -25,6 +25,9 @@ class NodeInfo(BaseModel):
     category: str
     description: str
     long_description: str
+    image_name: str
     cost: int
     inputs: dict[str, NodeInputInfo]
     outputs: dict[str, NodeOutputInfo] = {}
+    queue_url: Optional[str] = None
+    cache_url: Optional[str] = None
