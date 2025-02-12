@@ -1,3 +1,4 @@
+from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -12,6 +13,7 @@ from .token import Token
 from .vector_store import VectorStoreConnection, VectorStoreManager, VectorStoreProvider
 
 __all__ = [
+    "Conversation",
     "ExecutionError",
     "Graph",
     "Handle",
