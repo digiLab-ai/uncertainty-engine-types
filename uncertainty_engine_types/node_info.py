@@ -4,8 +4,8 @@ from pydantic import BaseModel
 
 
 class NodeInputInfo(BaseModel):
-    label: str
     type: str
+    label: str
     description: str
     required: bool = True
     set_in_node: bool = True
@@ -13,14 +13,13 @@ class NodeInputInfo(BaseModel):
 
 
 class NodeOutputInfo(BaseModel):
-    label: str
     type: str
+    label: str
     description: str
 
 
 class NodeInfo(BaseModel):
     id: str
-    version: int
     label: str
     category: str
     description: str
