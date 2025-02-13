@@ -76,7 +76,7 @@ class LLMProvider(Enum):
 
 
 @typechecked
-class LLMManager(BaseModel):
+class LLMConfig(BaseModel):
     """
     Connection manager for Language Learning Models (LLMs).
     """
