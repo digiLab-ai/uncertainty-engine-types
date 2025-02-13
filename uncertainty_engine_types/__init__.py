@@ -2,7 +2,7 @@ from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
-from .llm import LLM, LLMManager, LLMProvider
+from .llm import LLM, LLMConfig, LLMProvider, OpenAILLM, OllamaLLM
 from .message import Message
 from .model import TwinLabModel, save_model
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
@@ -18,7 +18,7 @@ __all__ = [
     "Graph",
     "Handle",
     "LLM",
-    "LLMManager",
+    "LLMConfig",
     "LLMProvider",
     "Message",
     "Message",
@@ -27,6 +27,8 @@ __all__ = [
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
+    "OpenAILLM",
+    "OllamaLLM",
     "save_model",
     "save_sensor_designer",
     "SensorDesigner",
