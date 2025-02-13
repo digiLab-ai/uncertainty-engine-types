@@ -10,7 +10,7 @@ authors = [
 readme = "README.md"
 
 [tool.poetry.dependencies]
-pandas = "^2.2.3"
+pandas = "^2.2.2"
 pydantic = "^2.10.5"
 python = ">=3.10,<4.0"
 # typeguard = ">=2.13.3,<2.14.0"
