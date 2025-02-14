@@ -10,6 +10,6 @@ StructuredOutput = dict[str, StructuredOutputValue]
 
 
 class Message(BaseModel):
-    role: Literal["system", "user", "assistant"]
+    role: Literal["instruction", "user", "engine"]
     content: StructuredOutput
     timestamp: datetime
