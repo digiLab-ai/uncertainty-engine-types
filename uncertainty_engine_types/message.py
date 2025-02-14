@@ -4,10 +4,11 @@ from typing import Dict, Literal, Sequence, Union
 from pydantic import BaseModel
 
 
-Value = Union[str, float, int]
+Value = str | float | int
+StructuredOutput = dict[str, Value | Sequence[Value]]
 
 
 class Message(BaseModel):
     role: Literal["system", "user", "assistant"]
-    content: Union[str, Dict[str, Union[Value, Sequence[Value]]]]
+    content: StructuredOutput
     timestamp: datetime
