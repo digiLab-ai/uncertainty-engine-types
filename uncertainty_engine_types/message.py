@@ -5,7 +5,8 @@ from pydantic import BaseModel
 
 
 Value = str | float | int
-StructuredOutput = dict[str, Value | Sequence[Value]]
+StructuredOutputValue = Value | Sequence[Value]
+StructuredOutput = dict[str, StructuredOutputValue]
 
 
 class Message(BaseModel):
