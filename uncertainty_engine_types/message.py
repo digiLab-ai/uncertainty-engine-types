@@ -4,14 +4,13 @@ from typing import Dict, Literal, Sequence, Union
 from pydantic import BaseModel, model_validator
 
 
-Value = str | float | int
-StructuredOutputValue = Value | Sequence[Value] | dict[str, Value]
-StructuredOutput = dict[str, StructuredOutputValue]
+Value = Union[str, float, int]
+StructuredOutput = Dict[str, Union[Value, Sequence[Value], Dict[str, Value]]]
 
 
 class Message(BaseModel):
     role: Literal["instruction", "user", "engine"]
-    content: str | StructuredOutput
+    content: Union[str, StructuredOutput]
     timestamp: datetime
 
     @model_validator(mode="before")
