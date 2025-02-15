@@ -3,7 +3,7 @@ from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
 from .llm import LLM, LLMConfig, LLMProvider, OpenAILLM, OllamaLLM
-from .message import Message, StructuredOutput, StructuredOutputValue
+from .message import Message, StructuredOutput
 from .model import TwinLabModel, save_model
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
 from .sensor_designer import SensorDesigner, save_sensor_designer
