@@ -37,7 +37,6 @@ __all__ = [
     "SQLKind",
     "SQLManager",
     "StructuredOutput",
-    "StructuredOutputValue",
     "TabularData",
     "TargetHandle",
     "Token",
