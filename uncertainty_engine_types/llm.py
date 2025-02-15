@@ -81,11 +81,11 @@ class LLMConfig(BaseModel):
     Connection manager for Language Learning Models (LLMs).
     """
 
-    url: str
     provider: str
     model: str
-    temperature: float = 0.0
-    api_key: Optional[str] = None
+    temperature: Optional[float] = 0.0
+    ollama_url: Optional[str] = None
+    openai_api_key: Optional[str] = None
 
     def connect(self) -> LLM:
         """
@@ -97,13 +97,13 @@ class LLMConfig(BaseModel):
                 if self.api_key is None:
                     raise ValueError("API key is required for OpenAI LLM")
                 return OpenAILLM(
-                    api_key=self.api_key,
+                    api_key=self.openai_api_key,
                     model=self.model,
                     temperature=self.temperature,
                 )
             case LLMProvider.OLLAMA.value:
                 return OllamaLLM(
-                    url=self.url,
+                    url=self.ollama_url,
                     model=self.model,
                     temperature=self.temperature,
                 )
