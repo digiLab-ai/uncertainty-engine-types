@@ -2,45 +2,37 @@ from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
-from .llm import LLM, LLMConfig, LLMProvider, OpenAILLM, OllamaLLM
+from .llm import LLMConfig, LLMProvider
 from .message import Message
-from .model import TwinLabModel, save_model
+from .model import TwinLabModel
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
-from .sensor_designer import SensorDesigner, save_sensor_designer
-from .sql import SQLDatabase, SQLKind, SQLManager
+from .sensor_designer import SensorDesigner
+from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
 from .token import Token
-from .vector_store import VectorStoreConnection, VectorStoreManager, VectorStoreProvider
+from .vector_store import VectorStoreConfig, VectorStoreProvider
 
 __all__ = [
     "Conversation",
     "ExecutionError",
     "Graph",
     "Handle",
-    "LLM",
     "LLMConfig",
     "LLMProvider",
-    "Message",
     "Message",
     "NodeElement",
     "NodeId",
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
-    "OpenAILLM",
-    "OllamaLLM",
-    "save_model",
-    "save_sensor_designer",
     "SensorDesigner",
     "SourceHandle",
-    "SQLDatabase",
+    "SQLConfig",
     "SQLKind",
-    "SQLManager",
     "TabularData",
     "TargetHandle",
     "Token",
     "TwinLabModel",
-    "VectorStoreConnection",
-    "VectorStoreManager",
+    "VectorStoreConfig",
     "VectorStoreProvider",
 ]
