@@ -6,7 +6,7 @@ from .handle import Handle
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import TwinLabModel
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
+from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, Versions
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
@@ -41,5 +41,5 @@ __all__ = [
     "TwinLabModel",
     "VectorStoreConfig",
     "VectorStoreProvider",
-    "__version__",
+    "Versions",
 ]
