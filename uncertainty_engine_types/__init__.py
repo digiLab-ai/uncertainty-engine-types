@@ -41,4 +41,5 @@ __all__ = [
     "TwinLabModel",
     "VectorStoreConfig",
     "VectorStoreProvider",
+    "__version__",
 ]
