@@ -3,6 +3,12 @@ from typing import Any, Optional
 from pydantic import BaseModel
 
 
+class Versions(BaseModel):
+    base_image: str
+    types_lib: str = "0.0.2"
+    node: str
+
+
 class NodeInputInfo(BaseModel):
     type: str
     label: str
@@ -30,3 +36,4 @@ class NodeInfo(BaseModel):
     outputs: dict[str, NodeOutputInfo] = {}
     queue_url: Optional[str] = None
     cache_url: Optional[str] = None
+    versions: Versions

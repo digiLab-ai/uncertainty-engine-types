@@ -1,3 +1,4 @@
+from .context import Context
 from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
@@ -13,6 +14,7 @@ from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 
 __all__ = [
+    "Context",
     "Conversation",
     "ExecutionError",
     "Graph",
