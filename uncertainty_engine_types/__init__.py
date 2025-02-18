@@ -6,18 +6,17 @@ from .handle import Handle
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import TwinLabModel
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
+from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, Versions
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
-
-
-__version__ = "0.0.3"
+from .version import __version__
 
 
 __all__ = [
+    "__version__",
     "Context",
     "Conversation",
     "ExecutionError",
@@ -41,5 +40,5 @@ __all__ = [
     "TwinLabModel",
     "VectorStoreConfig",
     "VectorStoreProvider",
-    "__version__",
+    "Versions",
 ]
