@@ -1,3 +1,4 @@
+from .context import Context
 from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
@@ -12,7 +13,12 @@ from .tabular_data import TabularData
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 
+
+__version__ = "0.0.2"
+
+
 __all__ = [
+    "Context",
     "Conversation",
     "ExecutionError",
     "Graph",
@@ -35,4 +41,5 @@ __all__ = [
     "TwinLabModel",
     "VectorStoreConfig",
     "VectorStoreProvider",
+    "__version__",
 ]
