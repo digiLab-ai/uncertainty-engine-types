@@ -14,7 +14,7 @@ from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 
 __all__ = [
