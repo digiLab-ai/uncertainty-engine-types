@@ -11,7 +11,7 @@ class LLMProvider(Enum):
 
 class LLMConfig(BaseModel):
     """
-    Connection manager for Language Learning Models (LLMs).
+    Connection configuration for Language Learning Models (LLMs).
     """
 
     provider: str

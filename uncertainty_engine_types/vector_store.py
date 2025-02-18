@@ -9,7 +9,7 @@ class VectorStoreProvider(Enum):
 
 class VectorStoreConfig(BaseModel):
     """
-    Connection manager for a vector store.
+    Connection configuration for a vector store.
     """
 
     provider: str

@@ -9,7 +9,7 @@ class SQLKind(Enum):
 
 class SQLConfig(BaseModel):
     """
-    Connection manager for SQL databases.
+    Connection configuration for SQL databases.
     """
 
     kind: SQLKind
