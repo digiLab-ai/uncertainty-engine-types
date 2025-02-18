@@ -13,6 +13,10 @@ from .tabular_data import TabularData
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 
+
+__version__ = "0.0.2"
+
+
 __all__ = [
     "Context",
     "Conversation",

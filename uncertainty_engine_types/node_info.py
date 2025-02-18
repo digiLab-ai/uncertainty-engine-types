@@ -2,10 +2,12 @@ from typing import Any, Optional
 
 from pydantic import BaseModel
 
+from . import __version__
+
 
 class Versions(BaseModel):
     base_image: str
-    types_lib: str = "0.0.2"
+    types_lib: str = __version__
     node: str
 
 
