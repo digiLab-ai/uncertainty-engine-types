@@ -2,7 +2,7 @@ from typing import Any, Optional
 
 from pydantic import BaseModel
 
-from . import __version__
+from .version import __version__
 
 
 class Versions(BaseModel):

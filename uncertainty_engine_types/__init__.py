@@ -12,12 +12,11 @@ from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
-
-
-__version__ = "0.0.2"
+from .version import __version__
 
 
 __all__ = [
+    "__version__",
     "Context",
     "Conversation",
     "ExecutionError",
