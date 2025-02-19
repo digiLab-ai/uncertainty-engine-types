@@ -30,15 +30,9 @@ This library should be used by other packages to ensure consistency in the types
 
 ### Language Learning Models (LLMs)
 
-- **LLM**  
-  Abstract base class for language learning models.
-- **OpenAILLM**  
-  LLM implementation using OpenAI.
-- **OllamaLLM**  
-  LLM implementation using Ollama.
 - **LLMProvider**  
   Enum listing supported LLM providers.
-- **LLMManager**  
+- **LLMConfig**  
   Manages connections to LLMs based on the chosen provider and configuration.
 
 ### Messaging
@@ -48,10 +42,8 @@ This library should be used by other packages to ensure consistency in the types
 
 ### TwinLab Models
 
-- **TwinLabModel**  
+- **MachineLearningModel**  
   Represents a model configuration including metadata.
-- **save_model**  
-  Function to persist a model configuration.
 
 ### Node Metadata
 
@@ -71,14 +63,10 @@ This library should be used by other packages to ensure consistency in the types
 
 ### SQL Database Types
 
-- **SQLDatabase**  
-  Abstract base class for executing SQL queries.
-- **PostgreSQL**  
-  Implementation of SQLDatabase for PostgreSQL.
 - **SQLKind**  
   Enum listing supported SQL database types.
-- **SQLManager**  
-  Manages connections and operations for SQL databases.
+- **SQLConfig**  
+  Configures connections and operations for SQL databases.
 
 ### Tabular Data
 
@@ -92,15 +80,7 @@ This library should be used by other packages to ensure consistency in the types
 
 ### Vector Stores
 
-- **VectorStoreConnection**  
-  Abstract base class for vector store operations.
-- **WeaviateVectorStoreConnection**  
-  Implements a connection to a Weaviate vector store.
 - **VectorStoreProvider**  
   Enum for supported vector store providers.
-- **VectorStoreManager**  
-  Manages connections to vector stores.
-- **get_persistent_vector_store**  
-  Function to establish a persistent connection to a Weaviate vector store.
-- **get_embedding_function**  
-  Retrieves an embedding function based on configuration, supporting both HuggingFace and OpenAI options.
+- **VectorStoreConfig**  
+  Configures connections to vector stores.
