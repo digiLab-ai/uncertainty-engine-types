@@ -3,9 +3,10 @@ from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
+from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
-from .model import TwinLabModel
+from .model import MachineLearningModel
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, Versions
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
@@ -22,8 +23,11 @@ __all__ = [
     "ExecutionError",
     "Graph",
     "Handle",
+    "JobInfo",
+    "JobStatus",
     "LLMConfig",
     "LLMProvider",
+    "MachineLearningModel",
     "Message",
     "NodeElement",
     "NodeId",
@@ -37,7 +41,6 @@ __all__ = [
     "TabularData",
     "TargetHandle",
     "Token",
-    "TwinLabModel",
     "VectorStoreConfig",
     "VectorStoreProvider",
     "Versions",
