@@ -3,6 +3,7 @@ from .conversation import Conversation
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
+from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import TwinLabModel
@@ -22,6 +23,8 @@ __all__ = [
     "ExecutionError",
     "Graph",
     "Handle",
+    "JobInfo",
+    "JobStatus",
     "LLMConfig",
     "LLMProvider",
     "Message",
