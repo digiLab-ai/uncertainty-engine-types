@@ -1,7 +1,7 @@
 from pydantic import BaseModel, ConfigDict
 
 
-class TwinLabModel(BaseModel):
+class MachineLearningModel(BaseModel):
     model_type: str
     config: dict
     metadata: dict
