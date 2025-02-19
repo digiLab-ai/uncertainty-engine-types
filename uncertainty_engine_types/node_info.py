@@ -36,6 +36,7 @@ class NodeInfo(BaseModel):
     cost: int
     inputs: dict[str, NodeInputInfo]
     outputs: dict[str, NodeOutputInfo] = {}
+    load_balancer_url: Optional[str] = None
     queue_url: Optional[str] = None
     cache_url: Optional[str] = None
     versions: Versions
