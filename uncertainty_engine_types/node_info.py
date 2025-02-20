@@ -5,12 +5,6 @@ from pydantic import BaseModel
 from .version import __version__
 
 
-class Versions(BaseModel):
-    base_image: str
-    types_lib: str = __version__
-    node: str
-
-
 class NodeInputInfo(BaseModel):
     type: str
     label: str
@@ -39,4 +33,6 @@ class NodeInfo(BaseModel):
     load_balancer_url: Optional[str] = None
     queue_url: Optional[str] = None
     cache_url: Optional[str] = None
-    versions: Versions
+    version_types_lib: str = __version__
+    version_base_image: int
+    version_node: int
