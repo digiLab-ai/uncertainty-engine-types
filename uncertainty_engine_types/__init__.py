@@ -1,6 +1,6 @@
 from .context import Context
 from .conversation import Conversation
-from .document import Document, FileType
+from .document import Document, FileExtension
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -22,7 +22,7 @@ __all__ = [
     "Conversation",
     "Document",
     "ExecutionError",
-    "FileType",
+    "FileExtension",
     "Graph",
     "Handle",
     "LLMConfig",

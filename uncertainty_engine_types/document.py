@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class FileType(Enum):
+class FileExtension(Enum):
     PDF = "pdf"
     TXT = "txt"
     DOCX = "docx"
@@ -16,5 +16,5 @@ class Document(BaseModel):
     """
 
     file_name: str
-    file_type: str
+    file_extension: str
     url: str
