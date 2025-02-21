@@ -1,5 +1,6 @@
 from .context import Context
 from .conversation import Conversation
+from .document import Document, FileLocation, FileType
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -20,7 +21,10 @@ __all__ = [
     "__version__",
     "Context",
     "Conversation",
+    "Document",
     "ExecutionError",
+    "FileLocation",
+    "FileType",
     "Graph",
     "Handle",
     "JobInfo",
