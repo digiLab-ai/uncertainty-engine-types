@@ -19,18 +19,11 @@ class TextEmbeddingsConfig(BaseModel):
     ollama_url: Optional[str] = None
     openai_api_key: Optional[str] = None
 
-    @field_validator("ollama_url", "openai_api_key", mode="before")
+    @field_validator("provider", mode="before")
     @classmethod
-    def check_provider(cls, v, values, field):
-        provider = values.get("provider")
-        if v is None:
-            if provider == TextEmbeddingsProvider.OLLAMA and field.name == "ollama_url":
-                raise ValueError("ollama_url must be provided for 'ollama' provider.")
-            if (
-                provider == TextEmbeddingsProvider.OPENAI
-                and field.name == "openai_api_key"
-            ):
-                raise ValueError(
-                    "openai_api_key must be provided for 'openai' provider."
-                )
+    def check_provider(cls, v, values):
+        if v == TextEmbeddingsProvider.OLLAMA and not values.get("ollama_url"):
+            raise ValueError("ollama_url must be provided for 'ollama' provider.")
+        if v == TextEmbeddingsProvider.OPENAI and not values.get("openai_api_key"):
+            raise ValueError("openai_api_key must be provided for 'openai' provider.")
         return v
