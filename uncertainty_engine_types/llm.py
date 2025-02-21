@@ -35,9 +35,9 @@ class LLMConfig(BaseModel):
         @field_validator("provider", mode="before")
         @classmethod
         def check_provider(cls, v, values):
-            if v == LLMProvider.OLLAMA and not values.get("ollama_url"):
+            if v == LLMProvider.OLLAMA and not values.data.get("ollama_url"):
                 raise ValueError("ollama_url must be provided for 'ollama' provider.")
-            if v == LLMProvider.OPENAI and not values.get("openai_api_key"):
+            if v == LLMProvider.OPENAI and not values.data.get("openai_api_key"):
                 raise ValueError(
                     "openai_api_key must be provided for 'openai' provider."
                 )
