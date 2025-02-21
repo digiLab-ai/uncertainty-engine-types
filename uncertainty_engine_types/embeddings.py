@@ -1,7 +1,7 @@
 from enum import StrEnum
 from typing import Optional
 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, model_validator
 
 
 class TextEmbeddingsProvider(StrEnum):
@@ -19,11 +19,14 @@ class TextEmbeddingsConfig(BaseModel):
     ollama_url: Optional[str] = None
     openai_api_key: Optional[str] = None
 
-    @field_validator("provider", mode="before")
+    @model_validator(mode="before")
     @classmethod
-    def check_provider(cls, v, values):
-        if v == TextEmbeddingsProvider.OLLAMA and not values.data.get("ollama_url"):
+    def check_provider(cls, values):
+        provider = values.get("provider")
+        if provider == TextEmbeddingsProvider.OLLAMA and not values.get("ollama_url"):
             raise ValueError("ollama_url must be provided for 'ollama' provider.")
-        if v == TextEmbeddingsProvider.OPENAI and not values.data.get("openai_api_key"):
+        if provider == TextEmbeddingsProvider.OPENAI and not values.get(
+            "openai_api_key"
+        ):
             raise ValueError("openai_api_key must be provided for 'openai' provider.")
-        return v
+        return values
