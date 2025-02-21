@@ -1,6 +1,7 @@
 from .context import Context
 from .conversation import Conversation
 from .document import Document, FileExtension
+from .embeddings import TextEmbeddingsConfig, TextEmbeddingsProvider
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -39,6 +40,8 @@ __all__ = [
     "SQLKind",
     "TabularData",
     "TargetHandle",
+    "TextEmbeddingsConfig",
+    "TextEmbeddingsProvider",
     "Token",
     "TwinLabModel",
     "VectorStoreConfig",
