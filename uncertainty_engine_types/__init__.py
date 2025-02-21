@@ -7,7 +7,7 @@ from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, Versions
+from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
@@ -43,5 +43,4 @@ __all__ = [
     "Token",
     "VectorStoreConfig",
     "VectorStoreProvider",
-    "Versions",
 ]
