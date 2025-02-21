@@ -1,10 +1,10 @@
-from enum import Enum
+from enum import StrEnum
 from typing import Optional
 
 from pydantic import BaseModel
 
 
-class LLMProvider(Enum):
+class LLMProvider(StrEnum):
     OPENAI = "openai"
     OLLAMA = "ollama"
 
