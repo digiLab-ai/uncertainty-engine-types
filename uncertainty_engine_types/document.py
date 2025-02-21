@@ -18,3 +18,4 @@ class Document(BaseModel):
     file_name: str
     file_extension: str
     url: str
+    excerpt: Optional[str] = None
