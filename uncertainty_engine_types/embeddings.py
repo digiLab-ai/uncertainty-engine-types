@@ -15,6 +15,6 @@ class TextEmbeddingsConfig(BaseModel):
     """
 
     provider: str
-    model: str
+    model: Optional[str] = None
     ollama_url: Optional[str] = None
     openai_api_key: Optional[str] = None
