@@ -1,6 +1,15 @@
 from .context import Context
 from .conversation import Conversation
-from .file import File, FileLocation, FileType
+from .file import (
+    Document,
+    File,
+    FileLocation,
+    Image,
+    Mesh,
+    SQLTable,
+    TabularData,
+    WebPage,
+)
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -10,7 +19,6 @@ from .message import Message
 from .model import MachineLearningModel
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
-from .tabular_data import TabularData
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 from .version import __version__
@@ -24,14 +32,15 @@ __all__ = [
     "ExecutionError",
     "File",
     "FileLocation",
-    "FileType",
     "Graph",
     "Handle",
+    "Image",
     "JobInfo",
     "JobStatus",
     "LLMConfig",
     "LLMProvider",
     "MachineLearningModel",
+    "Mesh",
     "Message",
     "NodeElement",
     "NodeId",
@@ -39,9 +48,11 @@ __all__ = [
     "SourceHandle",
     "SQLConfig",
     "SQLKind",
+    "SQLTable",
     "TabularData",
     "TargetHandle",
     "Token",
     "VectorStoreConfig",
     "VectorStoreProvider",
+    "WebPage",
 ]

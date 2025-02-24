@@ -1,23 +1,41 @@
 from enum import StrEnum
-from typing import Optional
 
 from pydantic import BaseModel
-
-
-class FileType(StrEnum):
-    DOCUMENT = "document"
-    IMAGE = "image"
-    WEBPAGE = "webpage"
 
 
 class FileLocation(StrEnum):
     LOCAL = "local"
     S3 = "s3"
-    WWW = "www"
 
 
 class File(BaseModel):
-    file_type: FileType
-    path: str
+    pass
+
+
+class Document(File):
     location: FileLocation
-    meta: Optional[dict] = None
+    path: str
+
+
+class Image(File):
+    location: FileLocation
+    path: str
+
+
+class Mesh(File):
+    location: FileLocation
+    path: str
+
+
+class SQLTable(File):
+    url: str
+    query: str
+
+
+class TabularData(File):
+    location: FileLocation
+    path: str
+
+
+class WebPage(File):
+    url: str
