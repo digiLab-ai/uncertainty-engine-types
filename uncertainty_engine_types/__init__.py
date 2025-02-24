@@ -1,8 +1,20 @@
 from . import utils
 from .context import Context
 from .conversation import Conversation
-from .document import Document, FileLocation, FileType
 from .execution_error import ExecutionError
+from .file import (
+    Document,
+    File,
+    FileLocation,
+    Image,
+    LocalStorage,
+    Mesh,
+    PDF,
+    S3Storage,
+    SQLTable,
+    TabularData,
+    WebPage,
+)
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
 from .job import JobInfo, JobStatus
@@ -23,29 +35,36 @@ __all__ = [
     "Conversation",
     "Document",
     "ExecutionError",
+    "File",
     "FileLocation",
-    "FileType",
     "Graph",
     "Handle",
+    "Image",
     "JobInfo",
     "JobStatus",
     "LLMConfig",
     "LLMProvider",
+    "LocalStorage",
     "MachineLearningModel",
+    "Mesh",
     "Message",
     "NodeElement",
     "NodeId",
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
+    "PDF",
+    "S3Storage",
     "SensorDesigner",
     "SourceHandle",
     "SQLConfig",
     "SQLKind",
+    "SQLTable",
     "TabularData",
     "TargetHandle",
     "Token",
     "utils",
     "VectorStoreConfig",
     "VectorStoreProvider",
+    "WebPage",
 ]
