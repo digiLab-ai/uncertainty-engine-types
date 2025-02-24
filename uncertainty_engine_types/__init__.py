@@ -1,3 +1,4 @@
+from . import utils
 from .context import Context
 from .conversation import Conversation
 from .document import Document, FileLocation, FileType
@@ -44,6 +45,7 @@ __all__ = [
     "TabularData",
     "TargetHandle",
     "Token",
+    "utils",
     "VectorStoreConfig",
     "VectorStoreProvider",
 ]
