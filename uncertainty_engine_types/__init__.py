@@ -1,6 +1,6 @@
 from .context import Context
 from .conversation import Conversation
-from .document import Document, FileLocation, FileType
+from .file import File, FileLocation, FileType
 from .execution_error import ExecutionError
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
@@ -8,7 +8,6 @@ from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .tabular_data import TabularData
@@ -23,6 +22,7 @@ __all__ = [
     "Conversation",
     "Document",
     "ExecutionError",
+    "File",
     "FileLocation",
     "FileType",
     "Graph",
@@ -35,9 +35,6 @@ __all__ = [
     "Message",
     "NodeElement",
     "NodeId",
-    "NodeInfo",
-    "NodeInputInfo",
-    "NodeOutputInfo",
     "SensorDesigner",
     "SourceHandle",
     "SQLConfig",
