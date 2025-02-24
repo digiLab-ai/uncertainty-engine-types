@@ -1,11 +1,18 @@
-from enum import StrEnum
+from typing import Union
 
 from pydantic import BaseModel
 
 
-class FileLocation(StrEnum):
-    LOCAL = "local"
-    S3 = "s3"
+class S3Storage(BaseModel):
+    bucket: str
+    key: str
+
+
+class LocalStorage(BaseModel):
+    path: str
+
+
+FileLocation = Union[S3Storage, LocalStorage]
 
 
 class File(BaseModel):
@@ -14,17 +21,14 @@ class File(BaseModel):
 
 class Document(File):
     location: FileLocation
-    path: str
 
 
 class Image(File):
     location: FileLocation
-    path: str
 
 
 class Mesh(File):
     location: FileLocation
-    path: str
 
 
 class SQLTable(File):
@@ -34,7 +38,6 @@ class SQLTable(File):
 
 class TabularData(File):
     location: FileLocation
-    path: str
 
 
 class WebPage(File):
