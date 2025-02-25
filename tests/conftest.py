@@ -2,6 +2,8 @@ from datetime import datetime
 
 import pytest
 
+from uncertainty_engine_types import TextEmbeddingsProvider
+
 
 @pytest.fixture
 def node_input_info_data():
@@ -93,3 +95,26 @@ def conversation_data(message_data):
     """
 
     return {"messages": [message_data]}
+
+
+@pytest.fixture
+def provider_field(request):
+    """
+    Indirect fixture to parametrize the provider field
+    """
+
+    return getattr(request, "param", TextEmbeddingsProvider.OPENAI.value)
+
+
+@pytest.fixture
+def text_embeddings_config_data(provider_field):
+    """
+    Data to define a TextEmbeddingsConfig object
+    """
+
+    return {
+        "provider": provider_field,
+        "model": "model",
+        "ollama_url": "ollama_url",
+        "openai_api_key": "openai_api_key",
+    }
