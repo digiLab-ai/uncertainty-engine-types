@@ -45,13 +45,16 @@ def node_output_info_data() -> dict:
 
 
 @pytest.fixture
-def node_info_data(node_input_info_data, node_output_info_data, node_id) -> dict:
+def node_info_data(
+    node_input_info_data: dict, node_output_info_data: dict, node_id: str
+) -> dict:
     """
     Some data to define a NodeInfo object.
 
     Args:
         node_input_info_data: Some data to define a NodeInputInfo object
         node_output_info_data: Some data to define a NodeOutputInfo object
+        node_id: A node id
     """
 
     return {
@@ -74,7 +77,7 @@ def node_info_data(node_input_info_data, node_output_info_data, node_id) -> dict
 
 
 @pytest.fixture
-def context_data(node_info_data) -> dict:
+def context_data(node_info_data: dict) -> dict:
     """
     Data to define a Context object.
 
