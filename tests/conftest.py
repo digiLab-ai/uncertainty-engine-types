@@ -7,6 +7,15 @@ from uncertainty_engine_types import TextEmbeddingsProvider
 
 
 @pytest.fixture
+def node_id() -> str:
+    """
+    A node id.
+    """
+
+    return "node_id"
+
+
+@pytest.fixture
 def node_input_info_data() -> dict:
     """
     Some data to define a NodeInputInfo object.
@@ -36,7 +45,7 @@ def node_output_info_data() -> dict:
 
 
 @pytest.fixture
-def node_info_data(node_input_info_data, node_output_info_data) -> dict:
+def node_info_data(node_input_info_data, node_output_info_data, node_id) -> dict:
     """
     Some data to define a NodeInfo object.
 
@@ -46,7 +55,7 @@ def node_info_data(node_input_info_data, node_output_info_data) -> dict:
     """
 
     return {
-        "id": "id",
+        "id": node_id,
         "label": "label",
         "category": "category",
         "description": "description",
@@ -171,3 +180,12 @@ def web_page_data() -> dict:
     """
 
     return {"url": "url"}
+
+
+@pytest.fixture
+def handle_data() -> dict:
+    """
+    Data to define a Handle object.
+    """
+
+    return {"node_name": "node_name", "node_handle": "node_handle"}
