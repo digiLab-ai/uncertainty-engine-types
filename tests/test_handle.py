@@ -5,7 +5,7 @@ from uncertainty_engine_types import Handle
 
 def test_handle():
     """
-    Basic test that Handle class is working as expected
+    Basic test that Handle class is working as expected.
     """
 
     # Define some arbitrary handle string
@@ -22,7 +22,7 @@ def test_handle():
 
 def test_handle_invalid_extra():
     """
-    Test that a handle string with extra dots raises a ValueError
+    Test that a handle string with extra dots raises a ValueError.
     """
 
     # Define an invalid handle string
@@ -35,7 +35,7 @@ def test_handle_invalid_extra():
 
 def test_handle_invalid_missing():
     """
-    Test that a handle string with missing dots raises a ValueError
+    Test that a handle string with missing dots raises a ValueError.
     """
 
     # Define an invalid handle string

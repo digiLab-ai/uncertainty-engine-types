@@ -1,14 +1,15 @@
 from datetime import datetime
 
 import pytest
+from pytest import FixtureRequest
 
 from uncertainty_engine_types import TextEmbeddingsProvider
 
 
 @pytest.fixture
-def node_input_info_data():
+def node_input_info_data() -> dict:
     """
-    Some data to define a NodeInputInfo object
+    Some data to define a NodeInputInfo object.
     """
 
     return {
@@ -22,9 +23,9 @@ def node_input_info_data():
 
 
 @pytest.fixture
-def node_output_info_data():
+def node_output_info_data() -> dict:
     """
-    Some data to define a NodeOutputInfo object
+    Some data to define a NodeOutputInfo object.
     """
 
     return {
@@ -35,9 +36,13 @@ def node_output_info_data():
 
 
 @pytest.fixture
-def node_info_data(node_input_info_data, node_output_info_data):
+def node_info_data(node_input_info_data, node_output_info_data) -> dict:
     """
-    Some data to define a NodeInfo object
+    Some data to define a NodeInfo object.
+
+    Args:
+        node_input_info_data: Some data to define a NodeInputInfo object
+        node_output_info_data: Some data to define a NodeOutputInfo object
     """
 
     return {
@@ -60,9 +65,12 @@ def node_info_data(node_input_info_data, node_output_info_data):
 
 
 @pytest.fixture
-def context_data(node_info_data):
+def context_data(node_info_data) -> dict:
     """
-    Data to define a Context object
+    Data to define a Context object.
+
+    Args:
+        node_info_data: Some data to define a NodeInfo object
     """
 
     return {
@@ -76,9 +84,9 @@ def context_data(node_info_data):
 
 
 @pytest.fixture
-def message_data():
+def message_data() -> dict:
     """
-    Data to define a Message object
+    Data to define a Message object.
     """
 
     return {
@@ -89,27 +97,36 @@ def message_data():
 
 
 @pytest.fixture
-def conversation_data(message_data):
+def conversation_data(message_data: dict) -> dict:
     """
-    Data to define a Conversation object
+    Data to define a Conversation object.
+
+    Args:
+        message_data: Some data to define a Message object
     """
 
     return {"messages": [message_data]}
 
 
 @pytest.fixture
-def provider_field(request):
+def provider_field(request: FixtureRequest) -> str:
     """
     Indirect fixture to parametrize the provider field
+
+    Args:
+        request: The request object
     """
 
     return getattr(request, "param", TextEmbeddingsProvider.OPENAI.value)
 
 
 @pytest.fixture
-def text_embeddings_config_data(provider_field):
+def text_embeddings_config_data(provider_field: str) -> dict:
     """
     Data to define a TextEmbeddingsConfig object
+
+    Args:
+        provider_field: The provider field
     """
 
     return {
