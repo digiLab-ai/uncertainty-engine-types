@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pytest
 
 
@@ -69,3 +71,25 @@ def context_data(node_info_data):
         "timeout": 60,
         "nodes": {"node_1": node_info_data},
     }
+
+
+@pytest.fixture
+def message_data():
+    """
+    Data to define a Message object
+    """
+
+    return {
+        "role": "user",
+        "content": "content",
+        "timestamp": datetime(year=2025, month=2, day=25),
+    }
+
+
+@pytest.fixture
+def conversation_data(message_data):
+    """
+    Data to define a Conversation object
+    """
+
+    return {"messages": [message_data]}
