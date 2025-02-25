@@ -16,7 +16,6 @@ from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 from .version import __version__
 
-
 __all__ = [
     "__version__",
     "Context",
