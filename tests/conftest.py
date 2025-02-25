@@ -3,7 +3,7 @@ from datetime import datetime
 import pytest
 from pytest import FixtureRequest
 
-from uncertainty_engine_types import TextEmbeddingsProvider
+from uncertainty_engine_types import TextEmbeddingsProvider, JobStatus
 
 
 @pytest.fixture
@@ -220,3 +220,17 @@ def graph_data(node_element_data: dict) -> dict:
     """
 
     return {"nodes": {"node_name": node_element_data}}
+
+
+@pytest.fixture
+def job_info_data() -> dict:
+    """
+    Data to define a JobInfo object.
+    """
+
+    return {
+        "status": JobStatus.COMPLETED.value,
+        "message": "message",
+        "inputs": {"input_1": "input_1"},
+        "outputs": {"output_1": "output_1"},
+    }
