@@ -6,7 +6,7 @@ from uncertainty_engine_types import Context
 
 def test_context(context_data):
     """
-    Basic test that Handle class is working as expected
+    Basic test that Context class is working as expected
     """
 
     # Instantiate a Context object
