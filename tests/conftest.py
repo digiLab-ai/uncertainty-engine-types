@@ -192,3 +192,31 @@ def handle_data() -> dict:
     """
 
     return {"node_name": "node_name", "node_handle": "node_handle"}
+
+
+@pytest.fixture
+def node_element_data(handle_data: dict, node_id: str) -> dict:
+    """
+    Data to define a NodeElement object.
+
+    Args:
+        handle_data: Some data to define a Handle object
+        node_id: A node id
+    """
+
+    return {
+        "type": "type",  # I'm pretty sure the node_id is now used as the node type
+        "inputs": {"target_handle": handle_data}
+    }
+
+
+@pytest.fixture
+def graph_data(node_element_data: dict) -> dict:
+    """
+    Data to define a Graph object.
+
+    Args:
+        node_element_data: Some data to define a NodeElement object
+    """
+
+    return {"nodes": {"node_name": node_element_data}}
