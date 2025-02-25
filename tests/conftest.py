@@ -135,3 +135,39 @@ def text_embeddings_config_data(provider_field: str) -> dict:
         "ollama_url": "ollama_url",
         "openai_api_key": "openai_api_key",
     }
+
+
+@pytest.fixture
+def s3_storage_data() -> dict:
+    """
+    Data to define a S3Storage object.
+    """
+
+    return {"bucket": "bucket", "key": "key"}
+
+
+@pytest.fixture
+def local_storage_data() -> dict:
+    """
+    Data to define a LocalStorage object.
+    """
+
+    return {"path": "path"}
+
+
+@pytest.fixture
+def sql_table_data() -> dict:
+    """
+    Data to define a SQLTable object.
+    """
+
+    return {"url": "url", "query": "query"}
+
+
+@pytest.fixture
+def web_page_data() -> dict:
+    """
+    Data to define a WebPage object.
+    """
+
+    return {"url": "url"}
