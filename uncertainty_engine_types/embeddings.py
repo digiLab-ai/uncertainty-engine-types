@@ -4,19 +4,18 @@ from typing import Optional
 from pydantic import BaseModel, model_validator
 
 
-class LLMProvider(StrEnum):
+class TextEmbeddingsProvider(StrEnum):
     OPENAI = "openai"
     OLLAMA = "ollama"
 
 
-class LLMConfig(BaseModel):
+class TextEmbeddingsConfig(BaseModel):
     """
-    Connection configuration for Language Learning Models (LLMs).
+    Connection configuration for text embedding models.
     """
 
     provider: str
-    model: str
-    temperature: float = 0.0
+    model: Optional[str] = None
     ollama_url: Optional[str] = None
     openai_api_key: Optional[str] = None
 
@@ -24,8 +23,10 @@ class LLMConfig(BaseModel):
     @classmethod
     def check_provider(cls, values):
         provider = values.get("provider")
-        if provider == LLMProvider.OLLAMA and not values.get("ollama_url"):
+        if provider == TextEmbeddingsProvider.OLLAMA and not values.get("ollama_url"):
             raise ValueError("ollama_url must be provided for 'ollama' provider.")
-        if provider == LLMProvider.OPENAI and not values.get("openai_api_key"):
+        if provider == TextEmbeddingsProvider.OPENAI and not values.get(
+            "openai_api_key"
+        ):
             raise ValueError("openai_api_key must be provided for 'openai' provider.")
         return values

@@ -1,15 +1,16 @@
 from . import utils
 from .context import Context
 from .conversation import Conversation
+from .embeddings import TextEmbeddingsConfig, TextEmbeddingsProvider
 from .execution_error import ExecutionError
 from .file import (
+    PDF,
     Document,
     File,
     FileLocation,
     Image,
     LocalStorage,
     Mesh,
-    PDF,
     S3Storage,
     SQLTable,
     TabularData,
@@ -27,7 +28,6 @@ from .sql import SQLConfig, SQLKind
 from .token import Token
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 from .version import __version__
-
 
 __all__ = [
     "__version__",
@@ -62,6 +62,8 @@ __all__ = [
     "SQLTable",
     "TabularData",
     "TargetHandle",
+    "TextEmbeddingsConfig",
+    "TextEmbeddingsProvider",
     "Token",
     "utils",
     "VectorStoreConfig",
