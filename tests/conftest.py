@@ -3,7 +3,7 @@ from datetime import datetime
 import pytest
 from pytest import FixtureRequest
 
-from uncertainty_engine_types import TextEmbeddingsProvider, JobStatus
+from uncertainty_engine_types import TextEmbeddingsProvider, JobStatus, SQLKind
 
 
 @pytest.fixture
@@ -298,3 +298,19 @@ def sensor_designer_data() -> dict:
     """
 
     return {"bed": {"bed": "bed"}}
+
+
+@pytest.fixture
+def sql_config_data() -> dict:
+    """
+    Some data to define a SQLConfig object.
+    """
+
+    return {
+        "kind": SQLKind.POSTGRES,
+        "host": "host",
+        "username": "username",
+        "password": "password",
+        "port": 5432,
+        "database": "database",
+    }
