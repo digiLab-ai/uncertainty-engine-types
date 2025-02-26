@@ -1,6 +1,7 @@
 from . import utils
 from .context import Context
 from .conversation import Conversation
+from .dataset import CSVDataset
 from .embeddings import TextEmbeddingsConfig, TextEmbeddingsProvider
 from .execution_error import ExecutionError
 from .file import (
@@ -33,6 +34,7 @@ __all__ = [
     "__version__",
     "Context",
     "Conversation",
+    "CSVDataset",
     "Document",
     "ExecutionError",
     "File",
