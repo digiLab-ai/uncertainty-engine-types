@@ -60,3 +60,35 @@ def test_node_input_info_optional(
     node_input_info = NodeInputInfo(**node_input_info_data)
 
     assert node_input_info.model_dump()[field] == expected
+
+
+def test_node_output_info(node_output_info_data: dict):
+    """
+    Basic test that NodeOutputInfo model is working as expected.
+
+    Args:
+        node_output_info_data: Some data to define a NodeOutputInfo object
+    """
+
+    # Instantiate a NodeOutputInfo object
+    node_output_info = NodeOutputInfo(**node_output_info_data)
+
+    assert node_output_info.model_dump() == node_output_info_data
+
+
+@pytest.mark.parametrize("field", ["type", "label", "description"])
+def test_node_output_info_raise_missing(node_output_info_data: dict, field: str):
+    """
+    Test that NodeOutputInfo object raises an error when missing a required field.
+
+    Args:
+        node_output_info_data: Some data to define a NodeOutputInfo object
+        field: A field to remove from the node_output_info_data
+    """
+
+    # Remove a required field
+    del node_output_info_data[field]
+
+    # Try to instantiate a NodeOutputInfo object with a missing required field
+    with pytest.raises(ValidationError):
+        NodeOutputInfo(**node_output_info_data)
