@@ -109,9 +109,9 @@ def message_data() -> dict:
 
 
 @pytest.fixture
-def conversation_data(message_data: dict) -> dict:
+def chat_history_data(message_data: dict) -> dict:
     """
-    Data to define a Conversation object.
+    Data to define a ChatHistory object.
 
     Args:
         message_data: Some data to define a Message object
