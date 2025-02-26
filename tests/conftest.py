@@ -314,3 +314,20 @@ def sql_config_data() -> dict:
         "port": 5432,
         "database": "database",
     }
+
+
+@pytest.fixture
+def vector_store_config_data() -> dict:
+    """
+    Some data to define a VectorStoreConfig object.
+    """
+
+    return {
+        "provider": "provider",
+        "host": "host",
+        "port": "port",
+        "collection": "collection",
+        "embedding_type": "embedding_type",
+        "embedding_model": "embedding_model",
+        "embedding_api_key": "embedding_api_key",
+    }
