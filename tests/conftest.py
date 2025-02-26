@@ -276,3 +276,16 @@ def llm_config_data(llm_provider_field: str) -> dict:
         "ollama_url": "ollama_url",
         "openai_api_key": "openai_api_key",
     }
+
+
+@pytest.fixture
+def machine_learning_model_data() -> dict:
+    """
+    Some data to define a MachineLearningModel object.
+    """
+
+    return {
+        "model_type": "model_type",
+        "config": {"config": "config"},
+        "metadata": {"metadata": "metadata"},
+    }
