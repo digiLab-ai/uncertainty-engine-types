@@ -289,3 +289,12 @@ def machine_learning_model_data() -> dict:
         "config": {"config": "config"},
         "metadata": {"metadata": "metadata"},
     }
+
+
+@pytest.fixture
+def sensor_designer_data() -> dict:
+    """
+    Some data to define a SensorDesigner object.
+    """
+
+    return {"bed": {"bed": "bed"}}
