@@ -4,10 +4,6 @@ from typing import Dict, Literal, Sequence, Union
 from pydantic import BaseModel, model_validator
 
 
-Value = Union[str, float, int]
-StructuredOutput = Dict[str, Union[Value, Sequence[Value], Dict[str, Value]]]
-
-
 class Message(BaseModel):
     role: Literal["instruction", "user", "engine"]
     content: Union[str, StructuredOutput]
