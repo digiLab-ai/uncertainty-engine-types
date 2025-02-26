@@ -121,7 +121,7 @@ def conversation_data(message_data: dict) -> dict:
 
 
 @pytest.fixture
-def provider_field(request: FixtureRequest) -> str:
+def embeddings_provider_field(request: FixtureRequest) -> str:
     """
     Indirect fixture to parametrize the provider field
 
@@ -133,7 +133,7 @@ def provider_field(request: FixtureRequest) -> str:
 
 
 @pytest.fixture
-def text_embeddings_config_data(provider_field: str) -> dict:
+def text_embeddings_config_data(embeddings_provider_field: str) -> dict:
     """
     Data to define a TextEmbeddingsConfig object
 
@@ -142,7 +142,7 @@ def text_embeddings_config_data(provider_field: str) -> dict:
     """
 
     return {
-        "provider": provider_field,
+        "provider": embeddings_provider_field,
         "model": "model",
         "ollama_url": "ollama_url",
         "openai_api_key": "openai_api_key",
@@ -206,7 +206,7 @@ def node_element_data(handle_data: dict, node_id: str) -> dict:
 
     return {
         "type": "type",  # I'm pretty sure the node_id is now used as the node type
-        "inputs": {"target_handle": handle_data}
+        "inputs": {"target_handle": handle_data},
     }
 
 
@@ -233,4 +233,34 @@ def job_info_data() -> dict:
         "message": "message",
         "inputs": {"input_1": "input_1"},
         "outputs": {"output_1": "output_1"},
+    }
+
+
+@pytest.fixture
+def llm_provider_field(request: FixtureRequest) -> str:
+    """
+    Indirect fixture to parametrize the provider field
+
+    Args:
+        request: The request object
+    """
+
+    return getattr(request, "param", TextEmbeddingsProvider.OPENAI.value)
+
+
+@pytest.fixture
+def llm_config_data(llm_provider_field: str) -> dict:
+    """
+    Data to define a LLMConfig object
+
+    Args:
+        provider_field: The provider field
+    """
+
+    return {
+        "provider": llm_provider_field,
+        "model": "model",
+        "temperature": 0.0,
+        "ollama_url": "ollama_url",
+        "openai_api_key": "openai_api_key",
     }
