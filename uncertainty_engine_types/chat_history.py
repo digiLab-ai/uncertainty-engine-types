@@ -3,5 +3,5 @@ from pydantic import BaseModel
 from .message import Message
 
 
-class Conversation(BaseModel):
+class ChatHistory(BaseModel):
     messages: list[Message]

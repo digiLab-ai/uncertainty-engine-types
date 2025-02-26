@@ -1,6 +1,6 @@
 from . import utils
+from .chat_history import ChatHistory
 from .context import Context
-from .conversation import Conversation
 from .dataset import CSVDataset
 from .embeddings import TextEmbeddingsConfig, TextEmbeddingsProvider
 from .execution_error import ExecutionError
@@ -32,8 +32,8 @@ from .version import __version__
 
 __all__ = [
     "__version__",
+    "ChatHistory",
     "Context",
-    "Conversation",
     "CSVDataset",
     "Document",
     "ExecutionError",
