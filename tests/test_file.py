@@ -1,8 +1,10 @@
 import pytest
+from pydantic import ValidationError
 
 from uncertainty_engine_types import (
     PDF,
     Document,
+    File,
     Image,
     LocalStorage,
     Mesh,
@@ -10,7 +12,6 @@ from uncertainty_engine_types import (
     SQLTable,
     TabularData,
     WebPage,
-    File,
 )
 
 
@@ -39,7 +40,7 @@ def test_s3_storage_raise_missing(s3_storage_data: dict, field: str):
     del s3_storage_data[field]
 
     # Try to instantiate an S3Storage object with a missing required field
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         S3Storage(**s3_storage_data)
 
 
@@ -69,7 +70,7 @@ def test_local_storage_raise_missing(local_storage_data: dict):
     del local_storage_data["path"]
 
     # Try to instantiate a LocalStorage object with a missing required field
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         LocalStorage(**local_storage_data)
 
 
