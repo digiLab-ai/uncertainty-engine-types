@@ -96,13 +96,25 @@ def context_data(node_info_data: dict) -> dict:
 
 
 @pytest.fixture
-def message_data() -> dict:
+def role_field(request: FixtureRequest) -> str:
+    """
+    Indirect fixture to parametrize the role field
+
+    Args:
+        request: The request object
+    """
+
+    return getattr(request, "param", "user")
+
+
+@pytest.fixture
+def message_data(role_field: str) -> dict:
     """
     Data to define a Message object.
     """
 
     return {
-        "role": "user",
+        "role": role_field,
         "content": "content",
         "timestamp": datetime(year=2025, month=2, day=25),
     }
