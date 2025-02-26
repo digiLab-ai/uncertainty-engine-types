@@ -35,9 +35,9 @@ def test_text_embeddings_config_raise_missing(text_embeddings_config_data: dict)
 
 
 @pytest.mark.parametrize(
-    "provider_field, field",
+    "embeddings_provider_field, field",
     [("openai", "model"), ("openai", "ollama_url"), ("ollama", "openai_api_key")],
-    indirect=["provider_field"],
+    indirect=["embeddings_provider_field"],
 )
 def test_text_embeddings_config_optional(text_embeddings_config_data: dict, field: str):
     """
@@ -58,9 +58,9 @@ def test_text_embeddings_config_optional(text_embeddings_config_data: dict, fiel
 
 
 @pytest.mark.parametrize(
-    "provider_field, field",
+    "embeddings_provider_field, field",
     [("openai", "openai_api_key"), ("ollama", "ollama_url")],
-    indirect=["provider_field"],
+    indirect=["embeddings_provider_field"],
 )
 def test_check_provider(text_embeddings_config_data: dict, field: str):
     """
