@@ -241,7 +241,7 @@ def job_info_data() -> dict:
     """
 
     return {
-        "status": JobStatus.COMPLETED.value,
+        "status": JobStatus.COMPLETED,
         "message": "message",
         "inputs": {"input_1": "input_1"},
         "outputs": {"output_1": "output_1"},
