@@ -23,7 +23,9 @@ class TextEmbeddingsConfig(BaseModel):
     @classmethod
     def check_provider(cls, values):
         provider = values.get("provider")
-        if provider == TextEmbeddingsProvider.OLLAMA.value and not values.get("ollama_url"):
+        if provider == TextEmbeddingsProvider.OLLAMA.value and not values.get(
+            "ollama_url"
+        ):
             raise ValueError("ollama_url must be provided for 'ollama' provider.")
         if provider == TextEmbeddingsProvider.OPENAI.value and not values.get(
             "openai_api_key"
