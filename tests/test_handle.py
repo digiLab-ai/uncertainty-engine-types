@@ -9,7 +9,7 @@ def test_handle(handle_data: dict):
     """
 
     # Define some arbitrary handle string
-    handle_str = f"{handle_data["node_name"]}.{handle_data["node_handle"]}"
+    handle_str = f"{handle_data['node_name']}.{handle_data['node_handle']}"
 
     # Create a Handle object from the handle string
     handle = Handle(handle_str)
