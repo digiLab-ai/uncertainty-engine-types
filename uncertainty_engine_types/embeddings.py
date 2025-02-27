@@ -1,10 +1,10 @@
-from enum import StrEnum
+from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, model_validator
 
 
-class TextEmbeddingsProvider(StrEnum):
+class TextEmbeddingsProvider(Enum):
     OPENAI = "openai"
     OLLAMA = "ollama"
 
@@ -23,9 +23,11 @@ class TextEmbeddingsConfig(BaseModel):
     @classmethod
     def check_provider(cls, values):
         provider = values.get("provider")
-        if provider == TextEmbeddingsProvider.OLLAMA and not values.get("ollama_url"):
+        if provider == TextEmbeddingsProvider.OLLAMA.value and not values.get(
+            "ollama_url"
+        ):
             raise ValueError("ollama_url must be provided for 'ollama' provider.")
-        if provider == TextEmbeddingsProvider.OPENAI and not values.get(
+        if provider == TextEmbeddingsProvider.OPENAI.value and not values.get(
             "openai_api_key"
         ):
             raise ValueError("openai_api_key must be provided for 'openai' provider.")
