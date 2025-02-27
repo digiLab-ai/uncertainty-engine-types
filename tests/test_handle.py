@@ -69,3 +69,21 @@ def test_handle_raise_missing(handle_data: dict, field: str):
     # Check that creating a Handle object from the invalid handle string raises a ValueError
     with pytest.raises(ValueError):
         Handle(**handle_data)
+
+
+@pytest.mark.parametrize(
+    "args",
+    [
+        (123,),
+        ("node.handle", "extra"),
+        ("node.handle", 123),
+    ],
+)
+def test_handle_invalid_positional(args):
+    """
+    Test that passing positional arguments to Handle raises a TypeError.
+    """
+
+    # Check that creating a Handle object with positional arguments raises a TypeError
+    with pytest.raises(TypeError):
+        Handle(*args)
