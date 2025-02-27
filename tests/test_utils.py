@@ -25,5 +25,5 @@ def test_format_pydantic_errors():
     formatted_error = format_pydantic_errors(e.value)
 
     # Verify that the formatted error contains the expected messages
-    assert "Error at 'name': str type expected" in formatted_error
-    assert "Error at 'age': value is not a valid integer" in formatted_error
+    assert "Error at 'name': Input should be a valid string" in formatted_error
+    assert "Error at 'age': Input should be a valid integer" in formatted_error
