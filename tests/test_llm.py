@@ -22,10 +22,16 @@ def test_llm_config(llm_config_data: dict):
 
 @pytest.mark.parametrize(
     "llm_provider_field, field, expected",
-    [("openai", "ollama_url", None), ("ollama", "openai_api_key", None), ("ollama", "temperature", 0.0)],
+    [
+        ("openai", "ollama_url", None),
+        ("ollama", "openai_api_key", None),
+        ("ollama", "temperature", 0.0),
+    ],
     indirect=["llm_provider_field"],
 )
-def test_llm_config_optional(llm_config_data: dict, field: str, expected: Optional[float]):
+def test_llm_config_optional(
+    llm_config_data: dict, field: str, expected: Optional[float]
+):
     """
     Test that LLMConfig object does not raise an error when missing an optional field.
 
