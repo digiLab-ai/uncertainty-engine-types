@@ -28,13 +28,14 @@ class Image(File):
     location: FileLocation
 
 
+DataType = Union[List[float], List[List[float]]]  # Scalars or Vectors
+
+
 class Mesh(File):
     """
     Model representing a mesh with nodes, elements, and associated data
     Includes metadata about the mesh and its storage location
     """
-
-    DataType = Union[List[float], List[List[float]]]  # Scalars or Vectors
 
     # Metadata
     created_by: str
