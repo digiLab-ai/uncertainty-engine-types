@@ -80,7 +80,6 @@ def test_local_storage_raise_missing(local_storage_data: dict):
         PDF,
         Document,
         Image,
-        Mesh,
         TabularData,
     ],
 )
@@ -108,7 +107,6 @@ def test_file_s3(s3_storage_data: dict, file_type: File):
         PDF,
         Document,
         Image,
-        Mesh,
         TabularData,
     ],
 )
@@ -136,7 +134,6 @@ def test_file_local(file_type: File, local_storage_data: dict):
         PDF,
         Document,
         Image,
-        Mesh,
         TabularData,
     ],
 )
