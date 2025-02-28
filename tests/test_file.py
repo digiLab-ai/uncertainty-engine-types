@@ -7,7 +7,6 @@ from uncertainty_engine_types import (
     File,
     Image,
     LocalStorage,
-    Mesh,
     S3Storage,
     SQLTable,
     TabularData,
