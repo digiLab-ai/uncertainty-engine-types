@@ -3,7 +3,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, Field, model_validator
 
-from file import MeshFile
+from uncertainty_engine_types import MeshFile
 
 DataType = Union[List[float], List[List[float]]]  # Scalars or Vectors
 
