@@ -57,8 +57,8 @@ def test_mesh_computed_fields():
         project_id="proj_003",
         name="ComputedMesh",
         version="1.0",
-        nodes=[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
-        elements=[("triangle", [[0, 1, 2]]), ("triangle", [[1, 2, 3]])],
+        nodes=[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 1.0, 0.0], [0.0, 1.0, 0.0]],
+        elements=[("triangle", [[0, 1, 3], [1, 2, 3]])],
         location=mock_file,
         element_type="triangle",
     )
