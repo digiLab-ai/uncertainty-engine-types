@@ -19,11 +19,13 @@ from .file import (
 )
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
+from .id import ID
 from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
+from .prompt import Prompt
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .token import Token
@@ -41,6 +43,7 @@ __all__ = [
     "FileLocation",
     "Graph",
     "Handle",
+    "ID",
     "Image",
     "JobInfo",
     "JobStatus",
@@ -56,6 +59,7 @@ __all__ = [
     "NodeInputInfo",
     "NodeOutputInfo",
     "PDF",
+    "Prompt",
     "S3Storage",
     "SensorDesigner",
     "SourceHandle",
