@@ -334,6 +334,21 @@ def vector_store_config_data() -> dict:
 
 
 @pytest.fixture
+def model_config_data() -> dict:
+    """
+    Some data to define a ModelConfig object.
+    """
+
+    return {
+        "train_test_ratio": 0.8,
+        "input_variance": 0.1,
+        "output_variance": 0.1,
+        "model_type": "SingleTaskGPTorch",
+        "seed": 42,
+    }
+
+
+@pytest.fixture
 def resource_id_data() -> dict:
     """
     Some data to define a ResourceID object.

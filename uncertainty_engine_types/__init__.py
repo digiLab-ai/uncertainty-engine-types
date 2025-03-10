@@ -24,6 +24,7 @@ from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
+from .model_config import ModelConfig
 from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
 from .prompt import Prompt
 from .sensor_designer import SensorDesigner
@@ -52,6 +53,7 @@ __all__ = [
     "MachineLearningModel",
     "Mesh",
     "Message",
+    "ModelConfig",
     "NodeElement",
     "NodeId",
     "NodeInfo",
