@@ -331,3 +331,21 @@ def vector_store_config_data() -> dict:
         "embedding_model": "embedding_model",
         "embedding_api_key": "embedding_api_key",
     }
+
+
+@pytest.fixture
+def resource_id_data() -> dict:
+    """
+    Some data to define a ResourceID object.
+    """
+
+    return {"id": "id"}
+
+
+@pytest.fixture
+def prompt_data() -> dict:
+    """
+    Some data to define a Prompt object.
+    """
+
+    return {"prompt": "prompt"}
