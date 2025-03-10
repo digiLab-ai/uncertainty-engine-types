@@ -19,7 +19,7 @@ from .file import (
 )
 from .graph import Graph, NodeElement, NodeId, SourceHandle, TargetHandle
 from .handle import Handle
-from .id import ID
+from .id import ResourceID
 from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
 from .message import Message
@@ -43,7 +43,6 @@ __all__ = [
     "FileLocation",
     "Graph",
     "Handle",
-    "ID",
     "Image",
     "JobInfo",
     "JobStatus",
@@ -60,6 +59,7 @@ __all__ = [
     "NodeOutputInfo",
     "PDF",
     "Prompt",
+    "ResourceID",
     "S3Storage",
     "SensorDesigner",
     "SourceHandle",

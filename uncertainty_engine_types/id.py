@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class ID(BaseModel):
+class ResourceID(BaseModel):
     id: str
