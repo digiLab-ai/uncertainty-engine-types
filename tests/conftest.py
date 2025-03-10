@@ -340,3 +340,12 @@ def resource_id_data() -> dict:
     """
 
     return {"id": "id"}
+
+
+@pytest.fixture
+def prompt_data() -> dict:
+    """
+    Some data to define a Prompt object.
+    """
+
+    return {"prompt": "prompt"}
