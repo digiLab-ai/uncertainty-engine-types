@@ -347,7 +347,7 @@ def model_config_data() -> dict:
         "seed": 42,
     }
 
-
+@pytest.fixture
 def resource_id_data() -> dict:
     """
     Some data to define a ResourceID object.
