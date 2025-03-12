@@ -19,7 +19,9 @@ def test_machine_learning_model(machine_learning_model_data: dict):
 
 
 @pytest.mark.parametrize("field", ["model_type", "config", "metadata"])
-def test_machine_learning_model_raise_missing(machine_learning_model_data: dict, field: str):
+def test_machine_learning_model_raise_missing(
+    machine_learning_model_data: dict, field: str
+):
     """
     Test that MachineLearningModel object raises an error when missing a required field.
 
