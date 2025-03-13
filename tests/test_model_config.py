@@ -23,7 +23,6 @@ def test_model_config(model_config_data: dict):
 @pytest.mark.parametrize(
     "field, expected",
     [
-        ("train_test_ratio", 1.0),
         ("input_variance", None),
         ("output_variance", None),
         ("model_type", "SingleTaskGPTorch"),
@@ -53,7 +52,6 @@ def test_model_config_optional(
 @pytest.mark.parametrize(
     "field, invalid",
     [
-        ("train_test_ratio", "invalid"),
         ("input_variance", "invalid"),
         ("output_variance", "invalid"),
         ("model_type", 0.0),
