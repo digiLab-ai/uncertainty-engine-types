@@ -7,6 +7,7 @@ from pydantic import BaseModel
 class JobStatus(Enum):
     PENDING = "pending"
     RUNNING = "running"
+    CANCELLED = "cancelled"
     COMPLETED = "completed"
     FAILED = "failed"
 
