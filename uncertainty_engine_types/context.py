@@ -3,6 +3,11 @@ from pydantic import BaseModel
 from .node_info import NodeInfo
 
 
+class User(BaseModel):
+    email: str
+    project_id: str
+
+
 class Context(BaseModel):
     sync: bool
     job_id: str
