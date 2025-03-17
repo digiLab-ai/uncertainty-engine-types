@@ -32,3 +32,20 @@ def test_uncertainty_plot_raise_missing(uncertainty_plot_data: dict):
     # Try to instantiate a ResourceID object with a missing required field
     with pytest.raises(ValidationError):
         UncertaintyPlot(**uncertainty_plot_data)
+
+
+def test_uncertainty_plot_raise_wrong_length(uncertainty_plot_data: dict):
+    """
+    Test that ResourceID object raises an error when missing a required field.
+
+    Args:
+        uncertainty_plot_data: Some data to define a ResourceID object
+    """
+
+    # Remove a required field
+    _uncertainty_plot_data = uncertainty_plot_data.copy()
+    _uncertainty_plot_data["x_vals"] = [1., 2.]  # Missing the final value
+
+    # Try to instantiate a ResourceID object with a missing required field
+    with pytest.raises(ValidationError):
+        UncertaintyPlot(**_uncertainty_plot_data)
