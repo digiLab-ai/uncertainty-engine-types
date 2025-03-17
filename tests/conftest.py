@@ -364,3 +364,20 @@ def prompt_data() -> dict:
     """
 
     return {"prompt": "prompt"}
+
+
+@pytest.fixture
+def uncertainty_plot_data() -> dict:
+    """
+    Some data to define an UncertaintyPlot object.
+    """
+
+    return {
+        "x_label": "X",
+        "y_label": "y",
+        "x_vals": [1, 2, 3],
+        "mean": [1, 4, 9],
+        "std": [1, 1, 1],
+        "lower": [0, 3, 8],
+        "upper": [2, 5, 10],
+    }
