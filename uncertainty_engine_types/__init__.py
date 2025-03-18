@@ -30,6 +30,7 @@ from .prompt import Prompt
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .token import Token
+from .uncertainty_plot import UncertaintyPlot
 from .vector_store import VectorStoreConfig, VectorStoreProvider
 from .version import __version__
 
@@ -73,6 +74,7 @@ __all__ = [
     "TextEmbeddingsConfig",
     "TextEmbeddingsProvider",
     "Token",
+    "UncertaintyPlot",
     "utils",
     "VectorStoreConfig",
     "VectorStoreProvider",
