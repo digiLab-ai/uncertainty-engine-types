@@ -1,6 +1,6 @@
 from . import utils
 from .chat_history import ChatHistory
-from .context import Context
+from .context import Context, UserContext
 from .dataset import CSVDataset
 from .embeddings import TextEmbeddingsConfig, TextEmbeddingsProvider
 from .execution_error import ExecutionError
@@ -73,6 +73,7 @@ __all__ = [
     "TextEmbeddingsConfig",
     "TextEmbeddingsProvider",
     "Token",
+    "UserContext",
     "utils",
     "VectorStoreConfig",
     "VectorStoreProvider",
