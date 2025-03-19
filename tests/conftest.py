@@ -67,6 +67,7 @@ def node_info_data(
         "cost": 10,
         "inputs": {"input_1": node_input_info_data},
         "outputs": {"output_1": node_output_info_data},
+        "requirements": {"cpu": 256, "gpu": True, "memory": 512, "timeout": 60},
         "load_balancer_url": "load_balancer_url",
         "queue_url": "queue_url",
         "cache_url": "cache_url",
