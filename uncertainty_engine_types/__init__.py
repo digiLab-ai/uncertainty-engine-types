@@ -11,7 +11,7 @@ from .file import (
     FileLocation,
     Image,
     LocalStorage,
-    Mesh,
+    MeshFile,
     S3Storage,
     SQLTable,
     TabularData,
@@ -22,6 +22,7 @@ from .handle import Handle
 from .id import ResourceID
 from .job import JobInfo, JobStatus
 from .llm import LLMConfig, LLMProvider
+from .mesh import Mesh
 from .message import Message
 from .model import MachineLearningModel
 from .model_config import ModelConfig
@@ -52,6 +53,7 @@ __all__ = [
     "LocalStorage",
     "MachineLearningModel",
     "Mesh",
+    "MeshFile",
     "Message",
     "ModelConfig",
     "NodeElement",

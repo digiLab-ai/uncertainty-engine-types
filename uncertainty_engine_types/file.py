@@ -1,6 +1,7 @@
-from typing import Union
+from typing import Union, List, Tuple, Dict
+from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, model_validator
 
 
 class S3Storage(BaseModel):
@@ -27,7 +28,7 @@ class Image(File):
     location: FileLocation
 
 
-class Mesh(File):
+class MeshFile(File):
     location: FileLocation
 
 
