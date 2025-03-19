@@ -60,6 +60,7 @@ __all__ = [
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
+    "NodeRequirementsInfo",
     "PDF",
     "Prompt",
     "ResourceID",

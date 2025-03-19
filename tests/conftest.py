@@ -67,6 +67,7 @@ def node_info_data(
         "cost": 10,
         "inputs": {"input_1": node_input_info_data},
         "outputs": {"output_1": node_output_info_data},
+        "requirements": {"cpu": 256, "gpu": True, "memory": 512, "timeout": 60},
         "load_balancer_url": "load_balancer_url",
         "queue_url": "queue_url",
         "cache_url": "cache_url",
@@ -90,8 +91,13 @@ def context_data(node_info_data: dict) -> dict:
         "job_id": "job_id",
         "queue_url": "queue_url",
         "cache_url": "cache_url",
-        "timeout": 60,
         "nodes": {"node_1": node_info_data},
+        "timeout": 60,
+        "user": {
+            "email": "mr.pinecones@digilab.ai",
+            "project_id": "9hd239n8nd7923j08j",
+            "cost_code": "This is a cost code",
+        },
     }
 
 
