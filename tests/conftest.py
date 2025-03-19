@@ -92,6 +92,7 @@ def context_data(node_info_data: dict) -> dict:
         "queue_url": "queue_url",
         "cache_url": "cache_url",
         "nodes": {"node_1": node_info_data},
+        "timeout": 60,
         "user": {
             "email": "mr.pinecones@digilab.ai",
             "project_id": "9hd239n8nd7923j08j",
