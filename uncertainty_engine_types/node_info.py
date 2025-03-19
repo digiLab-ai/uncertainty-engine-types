@@ -22,7 +22,7 @@ class NodeOutputInfo(BaseModel):
 
 class NodeRequirementsInfo(BaseModel):
     cpu: int
-    gpu: int
+    gpu: bool
     memory: int
     timeout: int
 
