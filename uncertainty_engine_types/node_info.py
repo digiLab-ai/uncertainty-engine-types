@@ -20,6 +20,13 @@ class NodeOutputInfo(BaseModel):
     description: str
 
 
+class NodeRequirementsInfo(BaseModel):
+    cpu: int
+    gpu: int
+    memory: int
+    timeout: int
+
+
 class NodeInfo(BaseModel):
     id: str
     label: str
@@ -30,6 +37,7 @@ class NodeInfo(BaseModel):
     cost: int
     inputs: dict[str, NodeInputInfo]
     outputs: dict[str, NodeOutputInfo] = {}
+    requirements: NodeRequirementsInfo
     load_balancer_url: Optional[str] = None
     queue_url: Optional[str] = None
     cache_url: Optional[str] = None
