@@ -32,10 +32,10 @@ class NodeInfo(BaseModel, extra="allow"):
     Node information.
     """
 
-    # New properties must be added as optional. The Resource Service uses this
+    # New properties must be added as optional. The Node Registry uses this
     # model and must support Nodes that don't provide a full set of details.
     #
-    # Likewise, the `extra="allow"` argument allows the Resource Service to
+    # Likewise, the `extra="allow"` argument allows the Node Registry to
     # deserialise `NodeInfo` models with properties added post-release.
 
     id: str
