@@ -1,9 +1,10 @@
 from datetime import datetime
+from typing import Any
 
 import pytest
 from pytest import FixtureRequest
 
-from uncertainty_engine_types import TextEmbeddingsProvider, JobStatus, SQLKind
+from uncertainty_engine_types import JobStatus, SQLKind, TextEmbeddingsProvider
 
 
 @pytest.fixture
@@ -47,7 +48,7 @@ def node_output_info_data() -> dict:
 @pytest.fixture
 def node_info_data(
     node_input_info_data: dict, node_output_info_data: dict, node_id: str
-) -> dict:
+) -> dict[str, Any]:
     """
     Some data to define a NodeInfo object.
 

@@ -1,4 +1,5 @@
-from typing import Optional
+from typing import Any, Optional
+from uuid import uuid4
 
 import pytest
 from pydantic import ValidationError
@@ -109,6 +110,17 @@ def test_node_info(node_info_data: dict):
     assert node_info.model_dump() == node_info_data
 
 
+def test_node_info_allows_extras(node_info_data: dict[str, Any]) -> None:
+    """
+    Adds an unexpected key to a serialised `NodeInfo` and expects the key to be
+    present in the deserialised model.
+    """
+
+    node_info_data[str(uuid4())] = "foo"
+    node_info = NodeInfo(**node_info_data)
+    assert node_info.model_dump() == node_info_data
+
+
 @pytest.mark.parametrize(
     "field",
     [
@@ -148,6 +160,7 @@ def test_node_info_raise_missing(node_info_data: dict, field: str):
         ("load_balancer_url", None),
         ("queue_url", None),
         ("cache_url", None),
+        ("requirements", None),
         ("version_types_lib", __version__),
     ],
 )

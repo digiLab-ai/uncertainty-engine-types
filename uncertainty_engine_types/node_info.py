@@ -27,7 +27,17 @@ class NodeRequirementsInfo(BaseModel):
     timeout: int
 
 
-class NodeInfo(BaseModel):
+class NodeInfo(BaseModel, extra="allow"):
+    """
+    Node information.
+    """
+
+    # New properties must be added as optional. The Resource Service uses this
+    # model and must support Nodes that don't provide a full set of details.
+    #
+    # Likewise, the `extra="allow"` argument allows the Resource Service to
+    # deserialise `NodeInfo` models with properties added post-release.
+
     id: str
     label: str
     category: str
@@ -37,7 +47,11 @@ class NodeInfo(BaseModel):
     cost: int
     inputs: dict[str, NodeInputInfo]
     outputs: dict[str, NodeOutputInfo] = {}
-    requirements: NodeRequirementsInfo
+    requirements: Optional[NodeRequirementsInfo] = None
+    """
+    Deployment requirements.
+    """
+
     load_balancer_url: Optional[str] = None
     queue_url: Optional[str] = None
     cache_url: Optional[str] = None
