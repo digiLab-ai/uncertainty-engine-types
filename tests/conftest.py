@@ -91,7 +91,6 @@ def context_data(node_info_data: dict) -> dict:
         "job_id": "job_id",
         "queue_url": "queue_url",
         "cache_url": "cache_url",
-        "timeout": 60,
         "nodes": {"node_1": node_info_data},
     }
 
