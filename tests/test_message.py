@@ -1,3 +1,5 @@
+from typing import Union
+
 import pytest
 from pydantic import ValidationError
 
@@ -53,3 +55,39 @@ def test_message_raise_invalid_role(message_data: dict):
     # Try to instantiate a Message object with an invalid role field
     with pytest.raises(ValidationError):
         Message(**message_data)
+
+
+@pytest.mark.parametrize("new_content", [1, 1.0, True])
+def test_content_validator(message_data: dict, new_content: Union[int, float, bool]):
+    """
+    Test that the content field is converted to a string if it is not already.
+
+    Args:
+        message_data: Some data to define a Message object
+    """
+
+    # Change the content field
+    message_data["content"] = new_content
+
+    # Instantiate a Message object
+    message = Message(**message_data)
+
+    assert message.content == str(new_content)
+
+
+def test_content_validator_raise_invalid(message_data: dict):
+    """
+    Test that Message object raises an error when the content field is invalid.
+
+    Args:
+        message_data: Some data to define a Message object
+    """
+
+    # Change the content field to an invalid value
+    message_data["content"] = {"invalid": "content"}
+
+    # Try to instantiate a Message object with an invalid content field
+    with pytest.raises(ValidationError) as e:
+        Message(**message_data)
+
+    assert "Invalid type for content: dict. Must be str, int, float, or bool." in str(e.value)
