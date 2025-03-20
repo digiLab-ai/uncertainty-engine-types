@@ -25,7 +25,7 @@ from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
 from .model_config import ModelConfig
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo
+from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, NodeRequirementsInfo
 from .prompt import Prompt
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind

@@ -46,8 +46,20 @@ def node_output_info_data() -> dict:
 
 
 @pytest.fixture
+def node_requirements_info_data() -> dict:
+    """
+    Some data to define a NodeRequirementsInfo object.
+    """
+
+    return {"cpu": 256, "gpu": True, "memory": 512, "timeout": 60}
+
+
+@pytest.fixture
 def node_info_data(
-    node_input_info_data: dict, node_output_info_data: dict, node_id: str
+    node_input_info_data: dict,
+    node_output_info_data: dict,
+    node_id: str,
+    node_requirements_info_data: dict,
 ) -> dict[str, Any]:
     """
     Some data to define a NodeInfo object.
@@ -56,6 +68,7 @@ def node_info_data(
         node_input_info_data: Some data to define a NodeInputInfo object
         node_output_info_data: Some data to define a NodeOutputInfo object
         node_id: A node id
+        node_requirements_info_data: Some data to define a NodeRequirementsInfo object
     """
 
     return {
@@ -68,7 +81,7 @@ def node_info_data(
         "cost": 10,
         "inputs": {"input_1": node_input_info_data},
         "outputs": {"output_1": node_output_info_data},
-        "requirements": {"cpu": 256, "gpu": True, "memory": 512, "timeout": 60},
+        "requirements": node_requirements_info_data,
         "load_balancer_url": "load_balancer_url",
         "queue_url": "queue_url",
         "cache_url": "cache_url",
