@@ -8,7 +8,7 @@ from uncertainty_engine_types import NodeInfo, NodeInputInfo, NodeOutputInfo
 from uncertainty_engine_types.version import __version__
 
 
-def test_machine_learning_model(node_input_info_data: dict):
+def test_node_input_info_model(node_input_info_data: dict):
     """
     Basic test that NodeInputInfo model is working as expected.
 
@@ -17,13 +17,13 @@ def test_machine_learning_model(node_input_info_data: dict):
     """
 
     # Instantiate a NodeInputInfo object
-    machine_learning_model = NodeInputInfo(**node_input_info_data)
+    node_input_info = NodeInputInfo(**node_input_info_data)
 
-    assert machine_learning_model.model_dump() == node_input_info_data
+    assert node_input_info.model_dump() == node_input_info_data
 
 
 @pytest.mark.parametrize("field", ["type", "label", "description"])
-def test_machine_learning_model_raise_missing(node_input_info_data: dict, field: str):
+def test_node_input_info_raise_missing(node_input_info_data: dict, field: str):
     """
     Test that NodeInputInfo object raises an error when missing a required field.
 
