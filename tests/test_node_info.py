@@ -4,7 +4,12 @@ from uuid import uuid4
 import pytest
 from pydantic import ValidationError
 
-from uncertainty_engine_types import NodeInfo, NodeInputInfo, NodeOutputInfo
+from uncertainty_engine_types import (
+    NodeInfo,
+    NodeInputInfo,
+    NodeOutputInfo,
+    NodeRequirementsInfo,
+)
 from uncertainty_engine_types.version import __version__
 
 
@@ -181,3 +186,37 @@ def test_node_info_optional(node_info_data: dict, field: str, expected):
     node_info = NodeInfo(**node_info_data)
 
     assert node_info.model_dump()[field] == expected
+
+
+def test_node_requirements_info(node_requirements_info_data: dict):
+    """
+    Basic test that NodeRequirementsInfo model is working as expected.
+
+    Args:
+        node_requirements_info_data: Some data to define a NodeRequirementsInfo object
+    """
+
+    # Instantiate a NodeRequirementsInfo object
+    node_requirements_info = NodeRequirementsInfo(**node_requirements_info_data)
+
+    assert node_requirements_info.model_dump() == node_requirements_info_data
+
+
+@pytest.mark.parametrize("field", ["cpu", "gpu", "memory", "timeout"])
+def test_node_requirements_info_raise_missing(
+    node_requirements_info_data: dict, field: str
+):
+    """
+    Test that NodeRequirementsInfo object raises an error when missing a required field.
+
+    Args:
+        node_requirements_info_data: Some data to define a NodeRequirementsInfo object
+        field: A field to remove from the node_requirements_info_data
+    """
+
+    # Remove a required field
+    del node_requirements_info_data[field]
+
+    # Try to instantiate a NodeRequirementsInfo object with a missing required field
+    with pytest.raises(ValidationError):
+        NodeRequirementsInfo(**node_requirements_info_data)
