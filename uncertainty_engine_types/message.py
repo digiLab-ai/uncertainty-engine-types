@@ -12,8 +12,4 @@ class Message(BaseModel):
     @field_validator("content", mode="before")
     @classmethod
     def convert_content_to_string(cls, value: Any) -> str:
-        if isinstance(value, (str, int, float, bool)):
-            return str(value)
-        raise ValueError(
-            f"Invalid type for content: {type(value).__name__}. Must be str, int, float, or bool."
-        )
+        return str(value)
