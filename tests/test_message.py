@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Any
 
 import pytest
 from pydantic import ValidationError
@@ -58,12 +58,13 @@ def test_message_raise_invalid_role(message_data: dict):
 
 
 @pytest.mark.parametrize("new_content", [1, 1.0, True, {"valid": "content"}])
-def test_content_validator(message_data: dict, new_content: Union[int, float, bool]):
+def test_content_validator(message_data: dict, new_content: Any):
     """
     Test that the content field is converted to a string if it is not already.
 
     Args:
         message_data: Some data to define a Message object
+        new_content: A new content value to test
     """
 
     # Change the content field
