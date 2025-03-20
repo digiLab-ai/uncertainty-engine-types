@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Literal, Union
+from typing import Any, Literal
 
 from pydantic import BaseModel, field_validator
 
@@ -11,6 +11,9 @@ class Message(BaseModel):
 
     @field_validator("content", mode="before")
     @classmethod
-    def convert_content_to_string(cls, value: Union[str, int, float, bool]) -> str:
-        """Converts the content to a string if it is not already a string."""
-        return str(value)
+    def convert_content_to_string(cls, value: Any) -> str:
+        if isinstance(value, (str, int, float, bool)):
+            return str(value)
+        raise ValueError(
+            f"Invalid type for content: {type(value).__name__}. Must be str, int, float, or bool."
+        )
