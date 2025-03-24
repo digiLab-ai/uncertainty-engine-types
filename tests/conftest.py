@@ -341,7 +341,9 @@ def model_config_data() -> dict:
 
     return {
         "input_variance": 0.1,
+        "input_retained_dimensions": 1,
         "output_variance": 0.1,
+        "output_retained_dimensions": 1,
         "model_type": "SingleTaskGPTorch",
         "seed": 42,
     }
