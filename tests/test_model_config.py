@@ -24,7 +24,9 @@ def test_model_config(model_config_data: dict):
     "field, expected",
     [
         ("input_variance", None),
+        ("input_retained_dimensions", None),
         ("output_variance", None),
+        ("output_retained_dimensions", None),
         ("model_type", "SingleTaskGPTorch"),
         ("seed", None),
     ],
@@ -53,7 +55,9 @@ def test_model_config_optional(
     "field, invalid",
     [
         ("input_variance", "invalid"),
+        ("input_retained_dimensions", "invalid"),
         ("output_variance", "invalid"),
+        ("output_retained_dimensions", "invalid"),
         ("model_type", 0.0),
         ("seed", "invalid"),
     ],
