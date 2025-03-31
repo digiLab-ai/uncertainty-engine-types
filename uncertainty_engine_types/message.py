@@ -1,13 +1,13 @@
 from datetime import datetime
 from typing import Any, Literal
 
-from pydantic import BaseModel, field_validator, Field
+from pydantic import BaseModel, field_validator
 
 
 class Message(BaseModel):
     role: Literal["instruction", "user", "engine"]
     content: str
-    timestamp: datetime = Field(default_factory=datetime.now)
+    timestamp: datetime
 
     @field_validator("content", mode="before")
     @classmethod
