@@ -17,3 +17,4 @@ class JobInfo(BaseModel):
     message: Optional[str] = None
     inputs: dict
     outputs: Optional[dict] = None
+    progress: Optional[str] = None
