@@ -265,6 +265,7 @@ def job_info_data() -> dict:
         "message": "message",
         "inputs": {"input_1": "input_1"},
         "outputs": {"output_1": "output_1"},
+        "progress": None,
     }
 
 
