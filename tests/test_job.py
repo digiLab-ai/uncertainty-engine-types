@@ -35,7 +35,7 @@ def test_job_info_raise_missing(job_info_data: dict, field: str):
         JobInfo(**job_info_data)
 
 
-@pytest.mark.parametrize("field", ["message", "outputs"])
+@pytest.mark.parametrize("field", ["message", "outputs", "progress"])
 def test_job_info_optional(job_info_data: dict, field: str):
     """
     Test that JobInfo model does not raise an error when missing an optional field.
