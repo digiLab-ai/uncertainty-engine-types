@@ -1,6 +1,6 @@
 [project]
 name = "uncertainty-engine-types"
-version = "0.2.0"
+version = "0.3.0"
 description = "Common type definitions for the Uncertainty Engine"
 authors = [
     { name = "Freddy Wordingham", email = "freddy@digilab.ai" },
