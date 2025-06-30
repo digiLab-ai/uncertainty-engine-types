@@ -10,5 +10,5 @@ class ModelConfig(BaseModel):
     output_retained_dimensions: Optional[int] = None
     model_type: Literal["SingleTaskGPTorch"] = "SingleTaskGPTorch"
     kernel: Optional[str] = None
-    warp_inputs: bool = False
+    warp_inputs: Optional[bool] = None
     seed: Optional[int] = None

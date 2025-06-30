@@ -366,7 +366,7 @@ def model_config_data() -> dict:
         "output_variance": 0.1,
         "output_retained_dimensions": 1,
         "model_type": "SingleTaskGPTorch",
-        "warp_inputs": True,
+        "warp_inputs": False,
         "kernel": "kernel",
         "seed": 42,
     }
