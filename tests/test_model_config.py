@@ -28,7 +28,7 @@ def test_model_config(model_config_data: dict):
         ("output_variance", None),
         ("output_retained_dimensions", None),
         ("model_type", "SingleTaskGPTorch"),
-        ("warp_inputs", None),
+        ("warp_inputs", False),
         ("kernel", None),
         ("seed", None),
     ],
