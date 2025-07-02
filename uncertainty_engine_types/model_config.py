@@ -1,13 +1,12 @@
-from typing import Optional
-from enum import Enum
+from typing import Literal, Optional
 
 from pydantic import BaseModel
 
-
-class ModelType(str, Enum):
-    classification = "BernoulliClassificationGPTorch"
-    single_task = "SingleTaskGPTorch"
-    variational = "SingleTaskVariationalGPTorch"
+ModelType = Literal[
+    "BernoulliClassificationGPTorch",
+    "SingleTaskGPTorch",
+    "SingleTaskVariationalGPTorch",
+]
 
 
 class ModelConfig(BaseModel):
@@ -15,7 +14,7 @@ class ModelConfig(BaseModel):
     input_retained_dimensions: Optional[int] = None
     output_variance: Optional[float] = None
     output_retained_dimensions: Optional[int] = None
-    model_type: ModelType = ModelType.single_task
+    model_type: ModelType = "SingleTaskGPTorch"
     kernel: Optional[str] = None
     warp_inputs: bool = False
     seed: Optional[int] = None
