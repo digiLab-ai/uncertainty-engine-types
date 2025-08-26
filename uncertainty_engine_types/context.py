@@ -7,6 +7,7 @@ class UserContext(BaseModel):
     email: str
     project_id: str
     cost_code: str
+    user_id: str | None = None
 
 
 class Context(BaseModel):

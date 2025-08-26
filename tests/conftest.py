@@ -92,12 +92,16 @@ def node_info_data(
 
 
 @pytest.fixture
-def context_data(node_info_data: dict) -> dict:
+def context_data(
+    node_info_data: dict[str, Any],
+    user_context_data: dict[str, str],
+) -> dict[str, Any]:
     """
     Data to define a Context object.
 
     Args:
-        node_info_data: Some data to define a NodeInfo object
+        node_info_data: Some data to define a NodeInfo object.
+        user_context_data: Sample `UserContext` data.
     """
 
     return {
@@ -107,11 +111,7 @@ def context_data(node_info_data: dict) -> dict:
         "cache_url": "cache_url",
         "nodes": {"node_1": node_info_data},
         "timeout": 60,
-        "user": {
-            "email": "mr.pinecones@digilab.ai",
-            "project_id": "9hd239n8nd7923j08j",
-            "cost_code": "This is a cost code",
-        },
+        "user": user_context_data,
     }
 
 
@@ -404,4 +404,14 @@ def uncertainty_plot_data() -> dict:
         "std": [1, 1, 1],
         "lower": [0, 3, 8],
         "upper": [2, 5, 10],
+    }
+
+
+@pytest.fixture
+def user_context_data() -> dict[str, Any]:
+    return {
+        "email": "mr.pinecones@digilab.ai",
+        "project_id": "9hd239n8nd7923j08j",
+        "cost_code": "This is a cost code",
+        "user_id": "mr_pinecones_id",
     }
