@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from .node_info import NodeInfo
+from uncertainty_engine_types.node_info import NodeInfo
 
 
 class UserContext(BaseModel):
@@ -18,3 +18,4 @@ class Context(BaseModel):
     timeout: int
     nodes: dict[str, NodeInfo]
     user: UserContext
+    is_root: bool = False
