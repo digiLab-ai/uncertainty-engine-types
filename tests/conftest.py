@@ -112,6 +112,7 @@ def context_data(
         "nodes": {"node_1": node_info_data},
         "timeout": 60,
         "user": user_context_data,
+        "is_root": False,
     }
 
 

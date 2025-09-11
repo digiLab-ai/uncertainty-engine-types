@@ -29,7 +29,7 @@ class Context(BaseModel):
     """The node timeout in seconds."""
 
     nodes: dict[str, NodeInfo]
-    """All the nodes in the environment."""
+    """Dictionary of nodes and their runtime details."""
 
     user: UserContext
     """The context around the user executing the node."""
