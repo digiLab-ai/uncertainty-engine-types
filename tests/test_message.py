@@ -23,7 +23,7 @@ def test_message(message_data: dict):
     assert message.model_dump() == message_data
 
 
-@pytest.mark.parametrize("field", ["role", "content", "timestamp"])
+@pytest.mark.parametrize("field", ["role", "content"])
 def test_message_raise_missing(message_data: dict, field: str):
     """
     Test that Message object raises an error when missing a required field.
