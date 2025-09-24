@@ -84,6 +84,7 @@ def node_info_data(
         "requirements": node_requirements_info_data,
         "load_balancer_url": "load_balancer_url",
         "queue_url": "queue_url",
+        "service_arn": "arn:aws:ecs:sa-east-1:000000000000:service/test-cluster/uncertainty-engine-test-node",
         "cache_url": "cache_url",
         "version_types_lib": "version_types_lib",
         "version_base_image": 1,

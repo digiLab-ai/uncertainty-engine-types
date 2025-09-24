@@ -164,6 +164,7 @@ def test_node_info_raise_missing(node_info_data: dict, field: str):
         ("outputs", {}),
         ("load_balancer_url", None),
         ("queue_url", None),
+        ("service_arn", None),
         ("cache_url", None),
         ("requirements", None),
         ("version_types_lib", __version__),
