@@ -54,6 +54,11 @@ class NodeInfo(BaseModel, extra="allow"):
 
     load_balancer_url: Optional[str] = None
     queue_url: Optional[str] = None
+    service_arn: Optional[str] = None
+    """
+    Service ARN.
+    """
+
     cache_url: Optional[str] = None
     version_types_lib: str = __version__
     version_base_image: int
