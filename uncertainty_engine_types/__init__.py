@@ -25,7 +25,13 @@ from .llm import LLMConfig, LLMProvider
 from .message import Message
 from .model import MachineLearningModel
 from .model_config import ModelConfig
-from .node_info import NodeInfo, NodeInputInfo, NodeOutputInfo, NodeRequirementsInfo
+from .node_info import (
+    NodeInfo,
+    NodeInputInfo,
+    NodeOutputInfo,
+    NodeRequirementsInfo,
+    ScalingInfo,
+)
 from .prompt import Prompt
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
@@ -65,6 +71,7 @@ __all__ = [
     "Prompt",
     "ResourceID",
     "S3Storage",
+    "ScalingInfo",
     "SensorDesigner",
     "SourceHandle",
     "SQLConfig",

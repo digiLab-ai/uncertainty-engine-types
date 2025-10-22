@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from .version import __version__
 
@@ -25,6 +25,18 @@ class NodeRequirementsInfo(BaseModel):
     gpu: bool
     memory: int
     timeout: int
+
+
+class ScalingInfo(BaseModel):
+    """Scaling configuration."""
+
+    model_config = ConfigDict(use_attribute_docstrings=True)
+
+    max: int = 1
+    """Maximum number of service tasks to scale out to."""
+
+    min: int = 0
+    """Minimum number of service tasks to scale in to."""
 
 
 class NodeInfo(BaseModel, extra="allow"):
@@ -52,7 +64,14 @@ class NodeInfo(BaseModel, extra="allow"):
     Deployment requirements.
     """
 
+    scaling: ScalingInfo = ScalingInfo()
+    """Scaling configuration."""
+
     load_balancer_url: Optional[str] = None
+
+    queue_name: Optional[str] = None
+    """Name of the node's job queue."""
+
     queue_url: Optional[str] = None
     service_arn: Optional[str] = None
     """
