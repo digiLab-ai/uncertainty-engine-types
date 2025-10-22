@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
 
 from .version import __version__
 
@@ -29,6 +29,8 @@ class NodeRequirementsInfo(BaseModel):
 
 class ScalingInfo(BaseModel):
     """Scaling configuration."""
+
+    model_config = ConfigDict(use_attribute_docstrings=True)
 
     max: int = 1
     """Maximum number of service tasks to scale out to."""
@@ -62,7 +64,7 @@ class NodeInfo(BaseModel, extra="allow"):
     Deployment requirements.
     """
 
-    scaling: ScalingInfo = ScalingInfo()
+    scaling: ScalingInfo = Field(default_factory=ScalingInfo)
     """Scaling configuration."""
 
     load_balancer_url: Optional[str] = None
