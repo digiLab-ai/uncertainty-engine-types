@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 from .version import __version__
 
@@ -64,7 +64,7 @@ class NodeInfo(BaseModel, extra="allow"):
     Deployment requirements.
     """
 
-    scaling: ScalingInfo = Field(default_factory=ScalingInfo)
+    scaling: ScalingInfo = ScalingInfo()
     """Scaling configuration."""
 
     load_balancer_url: Optional[str] = None
