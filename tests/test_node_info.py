@@ -9,6 +9,7 @@ from uncertainty_engine_types import (
     NodeInputInfo,
     NodeOutputInfo,
     NodeRequirementsInfo,
+    ScalingInfo,
 )
 from uncertainty_engine_types.version import __version__
 
@@ -163,10 +164,12 @@ def test_node_info_raise_missing(node_info_data: dict, field: str):
     [
         ("outputs", {}),
         ("load_balancer_url", None),
+        ("queue_name", None),
         ("queue_url", None),
         ("service_arn", None),
         ("cache_url", None),
         ("requirements", None),
+        ("scaling", ScalingInfo().model_dump()),
         ("version_types_lib", __version__),
     ],
 )
@@ -221,3 +224,32 @@ def test_node_requirements_info_raise_missing(
     # Try to instantiate a NodeRequirementsInfo object with a missing required field
     with pytest.raises(ValidationError):
         NodeRequirementsInfo(**node_requirements_info_data)
+
+
+def test_scaling_info(scaling_info_data: dict[str, int]) -> None:
+    """
+    Assert that a fully-populated `ScalingInfo` can be initialised.
+    """
+    scaling_info = ScalingInfo(**scaling_info_data)
+    assert scaling_info.model_dump() == scaling_info_data
+
+
+@pytest.mark.parametrize(
+    "field, expected",
+    [
+        ("max", 1),
+        ("min", 0),
+    ],
+)
+def test_scaling_info_optional(
+    scaling_info_data: dict[str, int],
+    field: str,
+    expected: int,
+) -> None:
+    """
+    Assert that `ScalingInfo` returns the expected default values when
+    initialised with missing values.
+    """
+    del scaling_info_data[field]
+    scaling_info = ScalingInfo(**scaling_info_data)
+    assert scaling_info.model_dump()[field] == expected

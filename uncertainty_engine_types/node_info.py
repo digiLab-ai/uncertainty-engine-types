@@ -27,6 +27,16 @@ class NodeRequirementsInfo(BaseModel):
     timeout: int
 
 
+class ScalingInfo(BaseModel):
+    """Scaling configuration."""
+
+    max: int = 1
+    """Maximum number of service tasks to scale out to."""
+
+    min: int = 0
+    """Minimum number of service tasks to scale in to."""
+
+
 class NodeInfo(BaseModel, extra="allow"):
     """
     Node information.
@@ -52,7 +62,14 @@ class NodeInfo(BaseModel, extra="allow"):
     Deployment requirements.
     """
 
+    scaling: ScalingInfo = ScalingInfo()
+    """Scaling configuration."""
+
     load_balancer_url: Optional[str] = None
+
+    queue_name: Optional[str] = None
+    """Name of the node's job queue."""
+
     queue_url: Optional[str] = None
     service_arn: Optional[str] = None
     """

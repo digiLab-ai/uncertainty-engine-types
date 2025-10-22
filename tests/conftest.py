@@ -60,16 +60,9 @@ def node_info_data(
     node_output_info_data: dict,
     node_id: str,
     node_requirements_info_data: dict,
+    scaling_info_data: dict[str, int],
 ) -> dict[str, Any]:
-    """
-    Some data to define a NodeInfo object.
-
-    Args:
-        node_input_info_data: Some data to define a NodeInputInfo object
-        node_output_info_data: Some data to define a NodeOutputInfo object
-        node_id: A node id
-        node_requirements_info_data: Some data to define a NodeRequirementsInfo object
-    """
+    """Dictionary of values to fully populate a `NodeInfo` instance."""
 
     return {
         "id": node_id,
@@ -82,7 +75,9 @@ def node_info_data(
         "inputs": {"input_1": node_input_info_data},
         "outputs": {"output_1": node_output_info_data},
         "requirements": node_requirements_info_data,
+        "scaling": scaling_info_data,
         "load_balancer_url": "load_balancer_url",
+        "queue_name": "this_queue_name",
         "queue_url": "queue_url",
         "service_arn": "arn:aws:ecs:sa-east-1:000000000000:service/test-cluster/uncertainty-engine-test-node",
         "cache_url": "cache_url",
@@ -416,4 +411,15 @@ def user_context_data() -> dict[str, Any]:
         "project_id": "9hd239n8nd7923j08j",
         "cost_code": "This is a cost code",
         "user_id": "mr_pinecones_id",
+    }
+
+
+@pytest.fixture
+def scaling_info_data() -> dict[str, int]:
+    """
+    Dictionary of values to fully populate a `ScalingInfo` instance.
+    """
+    return {
+        "max": 42,
+        "min": 3,
     }
