@@ -84,6 +84,7 @@ def node_info_data(
         "version_types_lib": "version_types_lib",
         "version_base_image": 1,
         "version_node": 1,
+        "tags": ["tag1", "tag2"],
     }
 
 
