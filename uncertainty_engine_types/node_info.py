@@ -83,5 +83,5 @@ class NodeInfo(BaseModel, extra="allow"):
     version_base_image: int
     version_node: int
 
-    tags: Optional[list[str]] = []
+    tags: list[str] = []
     """Tags associated with the node."""
