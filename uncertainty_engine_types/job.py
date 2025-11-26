@@ -12,7 +12,11 @@ class JobStatus(Enum):
     FAILED = "failed"
 
     def is_terminal(self) -> bool:
-        return self in [JobStatus.COMPLETED, JobStatus.FAILED]
+        return self in [
+            JobStatus.CANCELLED,
+            JobStatus.COMPLETED,
+            JobStatus.FAILED,
+        ]
 
 
 class JobInfo(BaseModel):
