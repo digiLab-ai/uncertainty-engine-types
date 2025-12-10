@@ -81,7 +81,8 @@ class NodeInfo(BaseModel, extra="allow"):
     cache_url: Optional[str] = None
     version_types_lib: str = __version__
     version_base_image: int
-    version_node: int
+    version_node: int | str
+    """The node version; it will be a string when it's a semver."""
 
     tags: list[str] = []
     """Tags associated with the node."""
