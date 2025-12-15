@@ -436,3 +436,15 @@ def override_workflow_input_data() -> dict[str, Any]:
         "input_handle": "test_handle",
         "value": "some input val",
     }
+
+
+@pytest.fixture
+def override_workflow_output_data() -> dict[str, str]:
+    """
+    Dictionary values to fully populate `OverrideWorkflowOutput` instance.
+    """
+    return {
+        "node_label": "test node",
+        "output_handle": "test_handle",
+        "output_label": "output_label",
+    }
