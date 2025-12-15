@@ -86,6 +86,15 @@ def test_run_workflow_request(
     override_workflow_input_data: dict[str, Any],
     override_workflow_output_data: dict[str, str],
 ):
+    """
+    Basic test that RunWorkflowRequest is working as expected
+
+    Args:
+        override_workflow_input_data: data to define a OverrideWorkflowInput
+            object
+        override_workflow_output_data: data to define a OverrideWorkflowOutput
+            object
+    """
     inputs = [OverrideWorkflowInput(**override_workflow_input_data)]
     outputs = [OverrideWorkflowOutput(**override_workflow_output_data)]
     run_workflow_request = RunWorkflowRequest(inputs=inputs, outputs=outputs)
@@ -99,7 +108,10 @@ def test_run_workflow_request(
 
 
 def test_run_workflow_request_no_args():
-    """Test RunWorkflowRequest instantiation with no arguments."""
+    """
+    Test that RunWorkflowRequest can be instantiated with no arguments
+    and that optional inputs and outputs default to None.
+    """
     run_workflow_request = RunWorkflowRequest()
 
     expected_result = {
