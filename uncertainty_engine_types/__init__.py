@@ -33,6 +33,11 @@ from .node_info import (
     ScalingInfo,
 )
 from .prompt import Prompt
+from .run_workflow import (
+    OverrideWorkflowInput,
+    OverrideWorkflowOutput,
+    RunWorkflowRequest,
+)
 from .sensor_designer import SensorDesigner
 from .sql import SQLConfig, SQLKind
 from .token import Token
@@ -88,4 +93,7 @@ __all__ = [
     "VectorStoreConfig",
     "VectorStoreProvider",
     "WebPage",
+    "OverrideWorkflowInput",
+    "OverrideWorkflowOutput",
+    "RunWorkflowRequest",
 ]
