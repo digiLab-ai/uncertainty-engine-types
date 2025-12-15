@@ -424,3 +424,15 @@ def scaling_info_data() -> dict[str, int]:
         "max": 42,
         "min": 3,
     }
+
+
+@pytest.fixture
+def override_workflow_input_data() -> dict[str, Any]:
+    """
+    Dictionary values to fully populate `OverrideWorkflowInput` instance.
+    """
+    return {
+        "node_label": "test node",
+        "input_handle": "test_handle",
+        "value": "some input val",
+    }
