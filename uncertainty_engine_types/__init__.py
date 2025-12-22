@@ -50,6 +50,7 @@ from uncertainty_engine_types.run_workflow import (
 from uncertainty_engine_types.sensor_designer import SensorDesigner
 from uncertainty_engine_types.sql import SQLConfig, SQLKind
 from uncertainty_engine_types.token import Token
+from uncertainty_engine_types.tool_metadata import ToolMetadata
 from uncertainty_engine_types.uncertainty_plot import UncertaintyPlot
 from uncertainty_engine_types.vector_store import VectorStoreConfig, VectorStoreProvider
 from uncertainty_engine_types.version import __version__
@@ -105,4 +106,5 @@ __all__ = [
     "OverrideWorkflowInput",
     "OverrideWorkflowOutput",
     "RunWorkflowRequest",
+    "ToolMetadata",
 ]
