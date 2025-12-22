@@ -1,3 +1,5 @@
+import pytest
+
 from uncertainty_engine_types import NodeInputInfo, NodeOutputInfo, ToolMetadata
 
 
@@ -60,3 +62,50 @@ def test_tool_metadata_has_partial_data_empty() -> None:
     """
     metadata = ToolMetadata()
     assert not metadata.has_partial_data()
+
+
+def test_validate_complete_success(
+    node_input_info_data: dict, node_output_info_data: dict
+) -> None:
+    """
+    Test validate_complete does not raise when ToolMetadata is complete
+    """
+    metadata = ToolMetadata(
+        inputs={"node1": {"handle1": NodeInputInfo(**node_input_info_data)}},
+        outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}},
+    )
+    metadata.validate_complete()
+
+
+def test_validate_complete_empty() -> None:
+    """
+    Test validate_complete does not raise when ToolMetadata is empty
+    """
+    metadata = ToolMetadata()
+    metadata.validate_complete()
+
+
+def test_validate_complete_only_inputs_raises(node_input_info_data: dict) -> None:
+    """
+    Test validate_complete raises ValueError when not complete
+    """
+    metadata = ToolMetadata(
+        inputs={"node1": {"handle1": NodeInputInfo(**node_input_info_data)}}
+    )
+    with pytest.raises(
+        ValueError, match="Tool metadata must have both inputs AND outputs defined"
+    ):
+        metadata.validate_complete()
+
+
+def test_validate_complete_only_outputs_raises(node_output_info_data: dict) -> None:
+    """
+    Test validate_complete raises ValueError when not complete
+    """
+    metadata = ToolMetadata(
+        outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}}
+    )
+    with pytest.raises(
+        ValueError, match="Tool metadata must have both inputs AND outputs defined"
+    ):
+        metadata.validate_complete()
