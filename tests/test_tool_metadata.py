@@ -17,3 +17,46 @@ def test_tool_metadata_is_empty_with_data(
         outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}},
     )
     assert not metadata.is_empty()
+
+
+def test_tool_metadata_has_partial_data_only_inputs(node_input_info_data: dict) -> None:
+    """
+    Test has_partial_data returns True when ToolMetadata instantiated with only inputs
+    """
+    metadata = ToolMetadata(
+        inputs={"node1": {"handle1": NodeInputInfo(**node_input_info_data)}}
+    )
+    assert metadata.has_partial_data()
+
+
+def test_tool_metadata_has_partial_data_only_outputs(
+    node_output_info_data: dict,
+) -> None:
+    """
+    Test has_partial_data returns True when ToolMetadata instantiated with only outputs
+    """
+    metadata = ToolMetadata(
+        outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}}
+    )
+    assert metadata.has_partial_data()
+
+
+def test_tool_metadata_has_partial_data_both_defined(
+    node_input_info_data: dict, node_output_info_data: dict
+) -> None:
+    """
+    Test has_partial_data returns False when ToolMetadata instantiated with inputs and outputs
+    """
+    metadata = ToolMetadata(
+        inputs={"node1": {"handle1": NodeInputInfo(**node_input_info_data)}},
+        outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}},
+    )
+    assert not metadata.has_partial_data()
+
+
+def test_tool_metadata_has_partial_data_empty() -> None:
+    """
+    Test has_partial_data returns True when ToolMetadata instantiated with no inputs or outputs
+    """
+    metadata = ToolMetadata()
+    assert not metadata.has_partial_data()
