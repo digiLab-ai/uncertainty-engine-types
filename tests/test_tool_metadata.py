@@ -4,6 +4,9 @@ from uncertainty_engine_types import NodeInputInfo, NodeOutputInfo, ToolMetadata
 
 
 def test_tool_metadata_empty_by_default() -> None:
+    """
+    Test ToolMetadata is empty when instantiated with no args
+    """
     metadata = ToolMetadata()
 
     assert metadata.is_empty()
@@ -14,6 +17,9 @@ def test_tool_metadata_empty_by_default() -> None:
 def test_tool_metadata_is_empty_with_data(
     node_input_info_data: dict, node_output_info_data: dict
 ) -> None:
+    """
+    Test ToolMetadata is not empty when given input and output args
+    """
     metadata = ToolMetadata(
         inputs={"node1": {"handle1": NodeInputInfo(**node_input_info_data)}},
         outputs={"node1": {"handle1": NodeOutputInfo(**node_output_info_data)}},
