@@ -4,7 +4,14 @@ from typing import Any
 import pytest
 from pytest import FixtureRequest
 
-from uncertainty_engine_types import JobStatus, SQLKind, TextEmbeddingsProvider
+from uncertainty_engine_types import (
+    JobStatus,
+    NodeInputInfo,
+    NodeOutputInfo,
+    SQLKind,
+    TextEmbeddingsProvider,
+    ToolMetadata,
+)
 
 
 @pytest.fixture
@@ -33,6 +40,14 @@ def node_input_info_data() -> dict:
 
 
 @pytest.fixture
+def node_input_info() -> NodeInputInfo:
+    """
+    Returns NodeInputInfo object with some sensible defaults
+    """
+    return NodeInputInfo(type="type", label="label", description="description")
+
+
+@pytest.fixture
 def node_output_info_data() -> dict:
     """
     Some data to define a NodeOutputInfo object.
@@ -43,6 +58,14 @@ def node_output_info_data() -> dict:
         "label": "label",
         "description": "description",
     }
+
+
+@pytest.fixture
+def node_output_info() -> NodeOutputInfo:
+    """
+    Returns NodeInputInfo object with some sensible defaults
+    """
+    return NodeOutputInfo(type="type", label="label", description="description")
 
 
 @pytest.fixture
@@ -448,3 +471,40 @@ def override_workflow_output_data() -> dict[str, str]:
         "output_handle": "test_handle",
         "output_label": "output_label",
     }
+
+
+@pytest.fixture
+def tool_metadata_empty() -> ToolMetadata:
+    """
+    Returns an empty ToolMetadata instance.
+    """
+    return ToolMetadata()
+
+
+@pytest.fixture
+def tool_metadata_complete(
+    node_input_info: NodeInputInfo, node_output_info: NodeOutputInfo
+) -> ToolMetadata:
+    """
+    Returns a complete ToolMetadata instance with both inputs and outputs.
+    """
+    return ToolMetadata(
+        inputs={"node1": {"handle1": node_input_info}},
+        outputs={"node1": {"handle1": node_output_info}},
+    )
+
+
+@pytest.fixture
+def tool_metadata_only_inputs(node_input_info: NodeInputInfo) -> ToolMetadata:
+    """
+    Returns a ToolMetadata instance with only inputs defined.
+    """
+    return ToolMetadata(inputs={"node1": {"handle1": node_input_info}})
+
+
+@pytest.fixture
+def tool_metadata_only_outputs(node_output_info: NodeOutputInfo) -> ToolMetadata:
+    """
+    Returns a ToolMetadata instance with only outputs defined.
+    """
+    return ToolMetadata(outputs={"node1": {"handle1": node_output_info}})
