@@ -64,7 +64,7 @@ def test_tool_metadata_has_partial_data_both_defined(
 
 def test_tool_metadata_has_partial_data_empty() -> None:
     """
-    Test has_partial_data returns True when ToolMetadata instantiated with no inputs or outputs
+    Test has_partial_data returns False when ToolMetadata instantiated with no inputs or outputs
     """
     metadata = ToolMetadata()
     assert not metadata.has_partial_data()
