@@ -3,14 +3,20 @@ from pydantic import BaseModel, Field
 from uncertainty_engine_types import NodeInputInfo, NodeOutputInfo
 
 NodeId = str
+"""Unique ID of a Uncertainty Engine node. Eg `label` field in the SDK"""
 HandleLabel = str
+"""Unique ID of a handle to a given node. Eg `input_variance`"""
 
 
 class ToolMetadata(BaseModel):
+    """Tool metadata."""
+
     inputs: dict[NodeId, dict[HandleLabel, NodeInputInfo]] = Field(default_factory=dict)
+    """Defines which inputs on a workflow can be used as Tool Inputs"""
     outputs: dict[NodeId, dict[HandleLabel, NodeOutputInfo]] = Field(
         default_factory=dict
     )
+    """Defines which outputs on a workflow can be used as Tool outputs"""
 
     def is_empty(self) -> bool:
         """Check if the metadata is completely empty"""
