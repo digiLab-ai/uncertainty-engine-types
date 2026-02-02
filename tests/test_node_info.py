@@ -206,7 +206,28 @@ def test_node_requirements_info(node_requirements_info_data: dict):
     assert node_requirements_info.model_dump() == node_requirements_info_data
 
 
-@pytest.mark.parametrize("field", ["cpu", "gpu", "memory", "timeout"])
+def test_node_requirements_info_min(
+    node_requirements_info_min_data: dict[str, Any],
+) -> None:
+    """
+    Asserts that `NodeRequirementsInfo` can be instantiated without
+    optional values.
+    """
+    instance = NodeRequirementsInfo(**node_requirements_info_min_data)
+    assert instance.model_dump() == {
+        "cpu": None,
+        "gpu": None,
+        "memory": None,
+        **node_requirements_info_min_data,
+    }
+
+
+@pytest.mark.parametrize(
+    "field",
+    [
+        "timeout",
+    ],
+)
 def test_node_requirements_info_raise_missing(
     node_requirements_info_data: dict, field: str
 ):

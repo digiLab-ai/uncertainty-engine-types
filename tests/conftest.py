@@ -69,12 +69,27 @@ def node_output_info() -> NodeOutputInfo:
 
 
 @pytest.fixture
-def node_requirements_info_data() -> dict:
+def node_requirements_info_data(
+    node_requirements_info_min_data: dict[str, int],
+) -> dict[str, bool | int]:
     """
     Some data to define a NodeRequirementsInfo object.
     """
 
-    return {"cpu": 256, "gpu": True, "memory": 512, "timeout": 60}
+    return {
+        "cpu": 256,
+        "gpu": True,
+        "memory": 512,
+        **node_requirements_info_min_data,
+    }
+
+
+@pytest.fixture
+def node_requirements_info_min_data() -> dict[str, int]:
+    """Minimum data to build a `NodeRequirementsInfo` instance."""
+    return {
+        "timeout": 60,
+    }
 
 
 @pytest.fixture
