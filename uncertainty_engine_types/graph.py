@@ -11,7 +11,7 @@ SourceHandle = str
 class NodeElement(BaseModel):
     type: str
     inputs: dict[TargetHandle, Handle] = {}
-    version: str | None = None
+    version: str | int | None = None
 
 
 class Graph(BaseModel):
