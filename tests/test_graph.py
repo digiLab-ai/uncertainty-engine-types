@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 from pydantic import ValidationError
 
@@ -64,18 +66,21 @@ def test_node_element_raise_missing(node_element_data: dict):
         NodeElement(**node_element_data)
 
 
-def test_node_element_optional(node_element_data: dict):
+@pytest.mark.parametrize("field, expected", [("inputs", {}), ("version", None)])
+def test_node_element_optional(node_element_data: dict, field: str, expected: Any):
     """
     Test that NodeElement model does not raise an error when missing an optional field.
 
     Args:
         node_element_data: Some data to define a NodeElement object
+        field: The field to test
+        expected: The expected value for the field
     """
 
     # Remove an optional field
-    del node_element_data["inputs"]
+    del node_element_data[field]
 
     # Try to instantiate a NodeElement object with a missing optional field
     node_element = NodeElement(**node_element_data)
 
-    assert node_element.model_dump()["inputs"] == {}
+    assert node_element.model_dump()[field] == expected

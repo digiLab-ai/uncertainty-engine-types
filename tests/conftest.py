@@ -275,6 +275,7 @@ def node_element_data(handle_data: dict, node_id: str) -> dict:
     return {
         "type": "type",  # I'm pretty sure the node_id is now used as the node type
         "inputs": {"target_handle": handle_data},
+        "version": "1.0.0",
     }
 
 
