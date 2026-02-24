@@ -32,3 +32,14 @@ class TextEmbeddingsConfig(BaseModel):
         ):
             raise ValueError("openai_api_key must be provided for 'openai' provider.")
         return values
+
+    @model_validator(mode="before")
+    @classmethod
+    def check_model(cls, values):
+        model = values.get("model", None)
+        provider = values.get("provider")
+        if provider == TextEmbeddingsProvider.OLLAMA.value and not model:
+            values["model"] = "nomic-embed-text"
+        if provider == TextEmbeddingsProvider.OPENAI.value and not model:
+            values["model"] = "text-embedding-ada-002"
+        return values

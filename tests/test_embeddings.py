@@ -36,7 +36,7 @@ def test_text_embeddings_config_raise_missing(text_embeddings_config_data: dict)
 
 @pytest.mark.parametrize(
     "embeddings_provider_field, field",
-    [("openai", "model"), ("openai", "ollama_url"), ("ollama", "openai_api_key")],
+    [("openai", "ollama_url"), ("ollama", "openai_api_key")],
     indirect=["embeddings_provider_field"],
 )
 def test_text_embeddings_config_optional(text_embeddings_config_data: dict, field: str):
@@ -55,6 +55,28 @@ def test_text_embeddings_config_optional(text_embeddings_config_data: dict, fiel
     text_embeddings_config = TextEmbeddingsConfig(**text_embeddings_config_data)
 
     assert text_embeddings_config.model_dump()[field] is None
+
+
+@pytest.mark.parametrize(
+    "text_embeddings_config_data",
+    ["openai", "ollama"],
+    indirect=True,
+)
+def test_text_embeddings_config_default_model(text_embeddings_config_data: dict):
+    """Test that the default model is set correctly when not specified."""
+
+    # Remove the model field
+    del text_embeddings_config_data["model"]
+
+    # Instantiate a TextEmbeddingsConfig object
+    text_embeddings_config = TextEmbeddingsConfig(**text_embeddings_config_data)
+
+    # Check that the model field is set to the default value
+    provider = text_embeddings_config_data["provider"]
+    if provider == "openai":
+        assert text_embeddings_config.model == "text-embedding-ada-002"
+    elif provider == "ollama":
+        assert text_embeddings_config.model == "nomic-embed-text"
 
 
 @pytest.mark.parametrize(
