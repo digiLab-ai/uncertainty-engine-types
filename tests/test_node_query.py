@@ -1,38 +1,50 @@
 import pytest
 from pydantic import ValidationError
 
-from uncertainty_engine_types.node_query import NodeQueryInput, NodeQueryListInput
+from uncertainty_engine_types.node_query import NodeQuery, NodeQueryRequest
 
 
-def test_node_query_input_str():
-    input = NodeQueryInput(node_id="abc123", version="1.0.0")
-    assert str(input) == "abc123@1.0.0"
+def test_node_query_str():
+    node_query = NodeQuery(node_id="abc123", version="1.0.0")
+    assert str(node_query) == "abc123@1.0.0"
+    node_query2 = NodeQuery(node_id="abc123", version=42)
+    assert str(node_query2) == "abc123@42"
 
 
-def test_node_query_input_fields():
-    input = NodeQueryInput(node_id="nodeX", version="2.1.3")
-    assert input.node_id == "nodeX"
-    assert input.version == "2.1.3"
+def test_node_query_fields():
+    node_query = NodeQuery(node_id="nodeX", version=2)
+    assert node_query.node_id == "nodeX"
+    assert node_query.version == 2
+    node_query2 = NodeQuery(node_id="nodeY", version="v3")
+    assert node_query2.version == "v3"
 
 
-def test_node_query_input_validation():
+def test_node_query_version_type():
+    # Accepts both str and int
+    NodeQuery(node_id="n", version="v1")
+    NodeQuery(node_id="n", version=1)
     with pytest.raises(ValidationError):
-        NodeQueryInput(node_id=None, version="1.0.0")
+        NodeQuery(node_id="n", version=None)
+
+
+def test_node_query_validation():
     with pytest.raises(ValidationError):
-        NodeQueryInput(node_id="abc", version=None)
+        NodeQuery(node_id=None, version="1.0.0")
+    with pytest.raises(ValidationError):
+        NodeQuery(node_id="abc", version=None)
 
 
-def test_node_query_list_input():
+def test_node_query_request():
     nodes = [
-        NodeQueryInput(node_id="n1", version="v1"),
-        NodeQueryInput(node_id="n2", version="v2"),
+        NodeQuery(node_id="n1", version="v1"),
+        NodeQuery(node_id="n2", version=2),
     ]
-    input = NodeQueryListInput(nodes=nodes)
-    assert len(input.nodes) == 2
-    assert input.nodes[0].node_id == "n1"
-    assert input.nodes[1].version == "v2"
+    node_query_request = NodeQueryRequest(nodes=nodes)
+    assert len(node_query_request.nodes) == 2
+    assert node_query_request.nodes[0].node_id == "n1"
+    assert node_query_request.nodes[1].version == 2
 
 
-def test_node_query_list_input_empty():
-    input = NodeQueryListInput(nodes=[])
-    assert input.nodes == []
+def test_node_query_request_empty():
+    node_query_request = NodeQueryRequest(nodes=[])
+    assert node_query_request.nodes == []

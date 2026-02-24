@@ -41,7 +41,7 @@ from uncertainty_engine_types.node_info import (
     NodeRequirementsInfo,
     ScalingInfo,
 )
-from uncertainty_engine_types.node_query import NodeQueryInput, NodeQueryListInput
+from uncertainty_engine_types.node_query import NodeQuery, NodeQueryRequest
 from uncertainty_engine_types.prompt import Prompt
 from uncertainty_engine_types.run_workflow import (
     OverrideWorkflowInput,
@@ -82,8 +82,8 @@ __all__ = [
     "NodeInfo",
     "NodeInputInfo",
     "NodeOutputInfo",
-    "NodeQueryInput",
-    "NodeQueryListInput",
+    "NodeQuery",
+    "NodeQueryRequest",
     "NodeRequirementsInfo",
     "PDF",
     "Prompt",

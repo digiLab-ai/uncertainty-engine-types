@@ -1,21 +1,21 @@
 from pydantic import BaseModel
 
 
-class NodeQueryInput(BaseModel):
+class NodeQuery(BaseModel):
     """
     Represents a query for a specific node and version.
     """
 
     node_id: str
-    version: str
+    version: str | int
 
     def __str__(self):
         return f"{self.node_id}@{self.version}"
 
 
-class NodeQueryListInput(BaseModel):
+class NodeQueryRequest(BaseModel):
     """
-    List of node queries for batch operations.
+    Represents a request for querying specific node(s) and version(s).
     """
 
-    nodes: list[NodeQueryInput]
+    nodes: list[NodeQuery]
