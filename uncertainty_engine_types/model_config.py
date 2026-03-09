@@ -10,6 +10,7 @@ ModelType = Literal[
 
 
 class ModelConfig(BaseModel):
+    custom_config: Literal[False] = False
     input_variance: Optional[float] = None
     input_retained_dimensions: Optional[int] = None
     output_variance: Optional[float] = None
