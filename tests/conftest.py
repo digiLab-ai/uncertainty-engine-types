@@ -398,6 +398,7 @@ def model_config_data() -> dict:
     """
 
     return {
+        "custom_config": False,
         "input_variance": 0.1,
         "input_retained_dimensions": 1,
         "output_variance": 0.1,

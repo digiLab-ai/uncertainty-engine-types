@@ -23,6 +23,7 @@ def test_model_config(model_config_data: dict):
 @pytest.mark.parametrize(
     "field, expected",
     [
+        ("custom_config", False),
         ("input_variance", None),
         ("input_retained_dimensions", None),
         ("output_variance", None),
