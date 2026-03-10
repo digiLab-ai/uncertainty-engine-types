@@ -9,7 +9,7 @@ ModelType = Literal[
 ]
 
 
-class ModelConfig(BaseModel, extras="forbid"):
+class ModelConfig(BaseModel, extra="forbid"):
     custom_config: Literal[False] = False
     input_variance: Optional[float] = None
     input_retained_dimensions: Optional[int] = None
