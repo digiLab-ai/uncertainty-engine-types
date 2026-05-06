@@ -2,7 +2,6 @@ from pydantic import BaseModel
 
 from .handle import Handle
 
-
 NodeId = str
 TargetHandle = str
 SourceHandle = str
