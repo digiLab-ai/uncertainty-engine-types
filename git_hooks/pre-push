@@ -10,4 +10,4 @@ echo "[2/3] Running linter..."
 sh ./ci/run_linter.sh
 
 echo "[3/3] Running unit tests..."
-sh ./ci/run_tests.sh
+poetry run pytest tests
